@@ -45,25 +45,55 @@
 
 
             {{--            Login/Registration/Dashboard--}}
+
+
             <div class="d-flex gap-2 justify-content-evenly align-items-center">
+
+                @auth()
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-rounded btn-success btn- dropdown-toggle "
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">Hi,{{Auth::user()->name}} </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{route('login')}}">Go to Dashboard</a>
+                            <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
+
+
+                        </div>
+                    </div>
+
+                @endauth
+
+                    @if(!Auth::user())
                 <div class="btn-group">
-                    <button type="button" class="btn btn-rounded btn-success dropdown-toggle" data-bs-toggle="dropdown"
-                            aria-expanded="false">Login <i class="mdi mdi-chevron-down"></i></button>
+                    <button type="button" class="btn btn-rounded btn-success dropdown-toggle " data-bs-toggle="dropdown"
+                            aria-expanded="false">Login
+                    </button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Candidate</a>
+                        <a class="dropdown-item" href="{{route('login')}}">Candidate</a>
                         <a class="dropdown-item" href="#">Employer</a>
+                        <a class="dropdown-item" href="#">Admin</a>
+
 
                     </div>
                 </div>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-rounded btn-danger dropdown-toggle" data-bs-toggle="dropdown"
-                            aria-expanded="false">Register <i class="mdi mdi-chevron-down"></i></button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Candidate</a>
-                        <a class="dropdown-item" href="#">Employer</a>
 
+
+
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-rounded btn-danger dropdown-toggle"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">Register
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{route('register')}}">Candidate</a>
+                            <a class="dropdown-item" href="#">Employer</a>
+
+                        </div>
                     </div>
-                </div>
+                @endif
+
+
             </div>
         </div>
     </div>
