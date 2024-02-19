@@ -19,16 +19,14 @@
 
 
 @extends('layouts.sidenav')
-
 @section('include_content')
 
-    @include('components.dashboard.topbar')
+    @include('admin.dashboard.topbar')
 
-    @include('components.dashboard.sidebar')
+    @include('admin.dashboard.sidebar')
 @endsection
-
 @section('content')
 
-  <h2>Welcome to the Candidate Dashboard !</h2>
+  <h2>Welcome to the Admin Dashboard !</h2>
 
 @endsection

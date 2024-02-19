@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,4 +23,14 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 //Admin Routes
+
+Route::get('/admin/login',[AdminController::class,'create'])->name('admin.login');
+Route::post('/admin/login-submit',[AdminController::class,'store'])->name('admin.login.submit');
+
+Route::middleware('admin')->group(function ()
+{
+    Route::view('/admin/dashboard', 'admin.dashboard.dashboard');
+}
+
+);
 

@@ -49,12 +49,11 @@
 <!-- Begin page -->
 <div id="layout-wrapper">
 
-    @if(Route::currentRouteName()==='dashboard')
-        @include('components.dashboard.topbar')
+    @yield('include_content')
 
-        @include('components.dashboard.sidebar')
 
-    @endif
+
+
     <!-- ============================================================== -->
     <!-- Start right Content here -->
     <!-- ============================================================== -->

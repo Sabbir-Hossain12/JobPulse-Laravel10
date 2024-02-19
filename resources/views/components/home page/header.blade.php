@@ -49,11 +49,11 @@
 
             <div class="d-flex gap-2 justify-content-evenly align-items-center">
 
-                @auth()
+                @auth('admin')
                     <div class="btn-group">
                         <button type="button" class="btn btn-rounded btn-success btn- dropdown-toggle "
                                 data-bs-toggle="dropdown"
-                                aria-expanded="false">Hi,{{Auth::user()->name}} </button>
+                                aria-expanded="false">Hi,{{Auth::guard('admin')->user()->name  || Auth::user()->name }} </button>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{{route('login')}}">Go to Dashboard</a>
                             <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
@@ -64,7 +64,7 @@
 
                 @endauth
 
-                    @if(!Auth::user())
+                    @if(!Auth::user() && !Auth::guard('admin')->user())
                 <div class="btn-group">
                     <button type="button" class="btn btn-rounded btn-success dropdown-toggle " data-bs-toggle="dropdown"
                             aria-expanded="false">Login
