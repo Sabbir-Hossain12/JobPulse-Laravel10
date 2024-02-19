@@ -8,6 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description"/>
 
+
+
+
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.3/components/heroes/hero-1/assets/css/hero-1.css">
+
+
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}} ">
 
@@ -44,55 +51,19 @@
 
 <body>
 
-<!-- <body data-layout="horizontal"> -->
-
-<!-- Begin page -->
-<div id="layout-wrapper">
-
-    @if(Route::currentRouteName()==='dashboard')
-        @include('components.dashboard.topbar')
-
-        @include('components.dashboard.sidebar')
-
-    @endif
-    <!-- ============================================================== -->
-    <!-- Start right Content here -->
-    <!-- ============================================================== -->
-    <div class="main-content">
-
-        <div class="page-content">
-            <div class="container-fluid">
-
-                <!-- start page title -->
-                <div class="row">
-                    <div class="col-12">
-                        <div>
-                            @yield('content')
 
 
-                        </div>
-                    </div>
-                </div>
-                <!-- end page title -->
 
-            </div> <!-- container-fluid -->
-        </div>
-        <!-- End Page-content -->
+<main>
+
+@yield('content')
+</main>
 
 
-    </div>
-    @if(Route::has('dashboard'))
-        @include('components.dashboard.footer')
-    @endif
-    <!-- end main content-->
-
-    <!-- END layout-wrapper -->
 
 
-    <!-- Right bar overlay-->
-    <div class="rightbar-overlay"></div>
 
-</div>
+
 <!-- JAVASCRIPT -->
 <script src=" {{asset('assets')}}/libs/jquery/jquery.min.js"></script>
 <script src=" {{asset('assets')}}/libs/bootstrap/js/bootstrap.bundle.min.js"></script>

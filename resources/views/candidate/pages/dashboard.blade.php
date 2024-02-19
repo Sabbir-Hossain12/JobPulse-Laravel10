@@ -22,7 +22,6 @@
 
 @section('content')
 
-    <p> tetul is eating biriyani</p>
-    <p> tetul is eating biriyani</p>
+  <h2>Welcome to the Candidate Dashboard !</h2>
 
 @endsection
