@@ -49,34 +49,68 @@
 
             <div class="d-flex gap-2 justify-content-evenly align-items-center">
 
+                {{--Admin Dashboard--}}
                 @auth('admin')
                     <div class="btn-group">
                         <button type="button" class="btn btn-rounded btn-success btn- dropdown-toggle "
                                 data-bs-toggle="dropdown"
-                                aria-expanded="false">Hi,{{Auth::guard('admin')->user()->name  || Auth::user()->name }} </button>
+                                aria-expanded="false">Hi,{{Auth::guard('admin')->user()->name  }} </button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{route('login')}}">Go to Dashboard</a>
+                            <a class="dropdown-item" href="{{route('admin.dashboard')}}">Go to Dashboard</a>
+                            <a class="dropdown-item" href="{{route('admin.logout')}}">Logout</a>
+
+
+                        </div>
+                    </div>
+                @endauth
+
+                {{--Candidate Dashboard--}}
+                @auth('web')
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-rounded btn-success btn- dropdown-toggle "
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">Hi,{{Auth::user()->name }} </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{route('candidate.dashboard')}}">Go to Dashboard</a>
                             <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
 
 
                         </div>
                     </div>
+                @endauth
+                {{--Employer Dashboard--}}
+                @auth('employer')
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-rounded btn-success btn- dropdown-toggle "
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">Hi,{{Auth::guard('employer')->user()->name }} </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{route('employer.dashboard')}}">Go to Dashboard</a>
+                            <a class="dropdown-item" href="{{route('employer.logout')}}">Logout</a>
 
+
+                        </div>
+                    </div>
                 @endauth
 
-                    @if(!Auth::user() && !Auth::guard('admin')->user())
-                <div class="btn-group">
-                    <button type="button" class="btn btn-rounded btn-success dropdown-toggle " data-bs-toggle="dropdown"
-                            aria-expanded="false">Login
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{{route('login')}}">Candidate</a>
-                        <a class="dropdown-item" href="#">Employer</a>
-                        <a class="dropdown-item" href="#">Admin</a>
 
 
+
+
+                @if(!Auth::user() && !Auth::guard('admin')->user() && !Auth::guard('employer')->user())
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-rounded btn-success dropdown-toggle "
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">Login
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{route('login')}}">Candidate</a>
+                            <a class="dropdown-item" href="{{route('employer.login')}}">Employer</a>
+                            <a class="dropdown-item" href="{{route('admin.login')}}">Admin</a>
+
+
+                        </div>
                     </div>
-                </div>
 
 
 
@@ -87,7 +121,7 @@
                         </button>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{{route('register')}}">Candidate</a>
-                            <a class="dropdown-item" href="#">Employer</a>
+                            <a class="dropdown-item" href="{{route('employer.register')}}">Employer</a>
 
                         </div>
                     </div>

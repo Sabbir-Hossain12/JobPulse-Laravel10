@@ -10,7 +10,7 @@
                 <p class="lead mb-5">JobPulse is an innovative and comprehensive Job Portal Management System designed to streamline the recruitment process and connect job seekers with employment opportunities. </p>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
                     <input type="text" class="input-form form-control-lg" placeholder="Search By job Title">
-                    <button type="button" class="btn bsb-btn-xl btn-outline-light ">Search Jobs</button>
+                    <button type="button" class="btn bsb-btn-xl btn-outline-light bg-light">Search Jobs</button>
                 </div>
 
 
