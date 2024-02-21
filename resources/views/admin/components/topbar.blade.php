@@ -13,7 +13,7 @@
                                 </span>
                 </a>
 
-                <a href="index.html" class="logo logo-light">
+                <a href="" class="logo logo-light">
                                 <span class="logo-sm">
                                     <img src=" {{asset('assets')}}/images/logo-sm.svg" alt="" height="24">
                                 </span>
@@ -35,6 +35,9 @@
             {{--                    <button class="btn btn-primary" type="button"><i class="bx bx-search-alt align-middle"></i></button>--}}
             {{--                </div>--}}
             {{--            </form>--}}
+            <div class="d-flex justify-content-center align-items-center">
+                <span class="font-size-24 fw-bold">Admin Dashboard</span>
+            </div>
         </div>
 
         <div class="d-flex">

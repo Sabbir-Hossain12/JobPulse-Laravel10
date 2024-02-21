@@ -30,8 +30,16 @@ Route::post('/admin/login-submit', [AdminController::class, 'store'])->name('adm
 
 
 Route::middleware('admin')->group(function () {
-    Route::view('/admin/dashboard', 'admin.dashboard.dashboard')->name('admin.dashboard');
+    Route::view('/admin/dashboard', 'admin.pages.dashboard')->name('admin.dashboard');
     Route::get('/admin/logout', [AdminController::class, 'destroy'])->name('admin.logout');
+
+    Route::view('/admin/companies', 'admin.pages.company-page ')->name('admin.companies');
+    Route::view('/admin/candidates', 'admin.pages.candidate-page')->name('admin.candidates');
+    Route::view('/admin/employees', 'admin.pages.employee-page')->name('admin.employees');
+    Route::view('/admin/jobs', 'admin.pages.jobs-page')->name('admin.jobs');
+    Route::view('/admin/pages', 'admin.pages.pages-page')->name('admin.pages');
+    Route::view('/admin/plugins', 'admin.pages.dashboard')->name('admin.plugins');
+    Route::view('/admin/blogs', 'admin.pages.dashboard')->name('admin.blogs');
 
 }
 
