@@ -11,6 +11,6 @@
 
    <p>company page</p>
 
-    </div>
+
 
 @endsection

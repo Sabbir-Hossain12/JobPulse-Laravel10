@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Employer\EmployerController;
+use App\Http\Controllers\Admin\EmployerForAdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +28,8 @@ require __DIR__ . '/auth.php';
 Route::get('/admin/login', [AdminController::class, 'create'])->name('admin.login');
 Route::post('/admin/login-submit', [AdminController::class, 'store'])->name('admin.login.submit');
 
+Route::get('/employer-list', [EmployerForAdminController::class, 'employerList']);
+
 
 Route::middleware('admin')->group(function () {
     Route::view('/admin/dashboard', 'admin.pages.dashboard')->name('admin.dashboard');
@@ -40,6 +42,11 @@ Route::middleware('admin')->group(function () {
     Route::view('/admin/pages', 'admin.pages.pages-page')->name('admin.pages');
     Route::view('/admin/plugins', 'admin.pages.dashboard')->name('admin.plugins');
     Route::view('/admin/blogs', 'admin.pages.dashboard')->name('admin.blogs');
+
+
+    //employer list page
+
+
 
 }
 
