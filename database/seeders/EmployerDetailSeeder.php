@@ -16,7 +16,7 @@ class EmployerDetailSeeder extends Seeder
         $data=[
 
             [
-                'employer_id'=>7,
+                'employer_id'=>17,
                 'employer_details'=>'good company',
                 'location'=>'Dhaka,Bashundhara',
                 'website_url'=>'www.samsung',
@@ -25,7 +25,7 @@ class EmployerDetailSeeder extends Seeder
 
             ],
             [
-                'employer_id'=>8,
+                'employer_id'=>18,
                 'employer_details'=>'good company',
                 'location'=>'Dhaka,Bashundhara',
                 'website_url'=>'www.samsung',
@@ -34,7 +34,7 @@ class EmployerDetailSeeder extends Seeder
 
             ],
             [
-                'employer_id'=>9,
+                'employer_id'=>19,
                 'employer_details'=>'good company',
                 'location'=>'Dhaka,Bashundhara',
                 'website_url'=>'www.samsung',
@@ -43,7 +43,7 @@ class EmployerDetailSeeder extends Seeder
 
             ],
             [
-                'employer_id'=>10,
+                'employer_id'=>20,
                 'employer_details'=>'good company',
                 'location'=>'Dhaka,Bashundhara',
                 'website_url'=>'www.samsung',
@@ -52,7 +52,7 @@ class EmployerDetailSeeder extends Seeder
 
             ],
             [
-                'employer_id'=>11,
+                'employer_id'=>21,
                 'employer_details'=>'good company',
                 'location'=>'Dhaka,Bashundhara',
                 'website_url'=>'www.samsung',
@@ -61,7 +61,7 @@ class EmployerDetailSeeder extends Seeder
 
             ],
             [
-                'employer_id'=>12,
+                'employer_id'=>22,
                 'employer_details'=>'good company',
                 'location'=>'Dhaka,Bashundhara',
                 'website_url'=>'www.samsung',
@@ -70,7 +70,7 @@ class EmployerDetailSeeder extends Seeder
 
             ],
             [
-                'employer_id'=>13,
+                'employer_id'=>23,
                 'employer_details'=>'good company',
                 'location'=>'Dhaka,Bashundhara',
                 'website_url'=>'www.samsung',
@@ -79,7 +79,7 @@ class EmployerDetailSeeder extends Seeder
 
             ],
             [
-                'employer_id'=>14,
+                'employer_id'=>24,
                 'employer_details'=>'good company',
                 'location'=>'Dhaka,Bashundhara',
                 'website_url'=>'www.samsung',
@@ -88,7 +88,7 @@ class EmployerDetailSeeder extends Seeder
 
             ],
             [
-                'employer_id'=>15,
+                'employer_id'=>25,
                 'employer_details'=>'good company',
                 'location'=>'Dhaka,Bashundhara',
                 'website_url'=>'www.samsung',
@@ -97,7 +97,7 @@ class EmployerDetailSeeder extends Seeder
 
             ],
             [
-                'employer_id'=>16,
+                'employer_id'=>26,
                 'employer_details'=>'good company',
                 'location'=>'Dhaka,Bashundhara',
                 'website_url'=>'www.samsung',

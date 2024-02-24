@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\helper\responseHelper;
 use App\Http\Controllers\Controller;
 use App\Models\EmployerDetail;
 use Illuminate\Http\Request;
@@ -14,7 +15,7 @@ class EmployerForAdminController extends Controller
     {
        $data= Employer::all();
 
-       return $data;
+       return responseHelper::out('success',$data,200);
     }
 
     function employerByid(Request $request)
@@ -40,8 +41,21 @@ class EmployerForAdminController extends Controller
 
     function employerRemoveByid(Request $request)
     {
-        Employer::where('id',$request->id)->delete();
-        EmployerDetail::where('employer_id',$request->id)->delete();
+      $countE=  Employer::where('id',$request->id)->count();
+      $countED=  EmployerDetail::where('employer_id',$request->id)->count();
+
+        if($countED && $countE)
+        {
+             EmployerDetail::where('employer_id',$request->id)->delete();
+             Employer::where('id',$request->id)->delete();
+
+            return responseHelper::out('success','',200);
+        }
+        else
+        {
+            return responseHelper::out('failed','',400);
+        }
+
     }
 
 

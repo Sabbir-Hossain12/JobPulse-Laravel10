@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->enum('role',['Editor','Manager'])->default('Editor');
-
+            $table->enum('status',['0','1'])->default('0')->comment('0=inactive, 1=Active');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
