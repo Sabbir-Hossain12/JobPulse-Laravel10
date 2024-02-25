@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\EmployeeAdminController;
 use App\Http\Controllers\Admin\EmployerForAdminController;
+use App\Http\Controllers\Employer\EmployerController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,9 +31,11 @@ Route::get('/admin/login', [AdminController::class, 'create'])->name('admin.logi
 Route::post('/admin/login-submit', [AdminController::class, 'store'])->name('admin.login.submit');
 
 
+//Employee page
+Route::get('/employee-list', [EmployeeAdminController::class, 'employeeList']);
+Route::get('/employee-id/{id}', [EmployeeAdminController::class, 'employeeByID']);
+Route::get('/employee-remove/{id}', [EmployeeAdminController::class, 'employeeRemoveByid']);
 
-Route::get('/employer-list', [EmployerForAdminController::class, 'employerList']);
-Route::get('/employer-remove/{id}', [EmployerForAdminController::class, 'employerRemoveByid']);
 
 Route::middleware('admin')->group(function () {
     Route::view('/admin/dashboard', 'admin.pages.dashboard')->name('admin.dashboard');
@@ -44,6 +48,14 @@ Route::middleware('admin')->group(function () {
     Route::view('/admin/pages', 'admin.pages.pages-page')->name('admin.pages');
     Route::view('/admin/plugins', 'admin.pages.dashboard')->name('admin.plugins');
     Route::view('/admin/blogs', 'admin.pages.dashboard')->name('admin.blogs');
+
+//Employer Page
+    Route::get('/employer-list', [EmployerForAdminController::class, 'employerList']);
+    Route::get('/employer-remove/{id}', [EmployerForAdminController::class, 'employerRemoveByid']);
+
+    Route::get('/employer-by-id/{id}', [EmployerForAdminController::class, 'employerByid']);
+    Route::post('/employer-update/{id}', [EmployerForAdminController::class, 'employerUpdateById']);
+    Route::get('/status-list', [EmployerForAdminController::class, 'statusList']);
 
 
 

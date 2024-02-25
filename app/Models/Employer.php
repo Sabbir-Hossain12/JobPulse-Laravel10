@@ -21,7 +21,7 @@ class Employer extends Authenticatable
         'name',
         'email',
         'password',
-        'role'
+        'status'
     ];
 
     /**
@@ -33,7 +33,8 @@ class Employer extends Authenticatable
         'password',
         'remember_token',
     ];
-
+    const STATUS_INACTIVE = '0';
+    const STATUS_ACTIVE = '1';
     /**
      * The attributes that should be cast.
      *
