@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CandidateforAdminControoler;
 use App\Http\Controllers\Admin\EmployeeAdminController;
 use App\Http\Controllers\Admin\EmployerForAdminController;
 use App\Http\Controllers\Employer\EmployerController;
@@ -30,11 +31,11 @@ require __DIR__ . '/auth.php';
 Route::get('/admin/login', [AdminController::class, 'create'])->name('admin.login');
 Route::post('/admin/login-submit', [AdminController::class, 'store'])->name('admin.login.submit');
 
-
-//Employee page
-Route::get('/employee-list', [EmployeeAdminController::class, 'employeeList']);
-Route::get('/employee-id/{id}', [EmployeeAdminController::class, 'employeeByID']);
-Route::get('/employee-remove/{id}', [EmployeeAdminController::class, 'employeeRemoveByid']);
+//candidates page
+Route::get('/candidate-list', [CandidateforAdminControoler::class, 'candidateList']);
+Route::get('/candidate-remove/{id}', [CandidateforAdminControoler::class, 'candidateRemove']);
+Route::get('/candidate-id/{id}', [CandidateforAdminControoler::class, 'candidateById']);
+Route::post('/candidate-update/{id}', [CandidateforAdminControoler::class, 'candidateUpdate']);
 
 
 Route::middleware('admin')->group(function () {
@@ -57,10 +58,15 @@ Route::middleware('admin')->group(function () {
     Route::post('/employer-update/{id}', [EmployerForAdminController::class, 'employerUpdateById']);
     Route::get('/status-list', [EmployerForAdminController::class, 'statusList']);
 
+//Employee page
+    Route::get('/employee-list', [EmployeeAdminController::class, 'employeeList']);
+    Route::get('/employee-id/{id}', [EmployeeAdminController::class, 'employeeByID']);
+    Route::get('/employee-remove/{id}', [EmployeeAdminController::class, 'employeeRemoveByid']);
+    Route::get('/role-list', [EmployeeAdminController::class, 'adminRoleList']);
+    Route::post('/employee-update/{id}', [EmployeeAdminController::class, 'employeeUpdate']);
 
 
 
-    //employer list page
 
 
 

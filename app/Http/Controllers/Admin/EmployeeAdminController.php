@@ -6,6 +6,7 @@ use App\helper\responseHelper;
 use App\Http\Controllers\Controller;
 
 use App\Models\Admin;
+use App\Models\Role;
 use Illuminate\Http\Request;
 
 class EmployeeAdminController extends Controller
@@ -29,6 +30,37 @@ class EmployeeAdminController extends Controller
         Admin::where('id',$request->id)->delete();
 
         return responseHelper::out('success','',200);
+    }
+
+    function adminRoleList()
+    {
+       $data= Role::where('role_name','!=','superadmin')->get();
+
+        return responseHelper::out('success',$data,200);
+
+    }
+
+    function employeeUpdate(Request $request)
+    {
+        try {
+            $rol_id= Role::where('role_name',$request->input('role'))->first();
+
+          Admin::where('id',$request->id)->update([
+
+             'name'=> $request->input('name'),
+              'email'=> $request->input('email'),
+              'role_id'=>$rol_id->id
+          ]);
+            return responseHelper::out('success','',200);
+        }
+        catch (\Exception $exception)
+        {
+            return responseHelper::out($exception->getMessage(),'',200);
+        }
+
+
+
+
     }
 
 

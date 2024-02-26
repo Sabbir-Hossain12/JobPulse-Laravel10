@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Update Employer</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Update Employee (ADMINS)</h5>
             </div>
             <div class="modal-body">
                 <form id="update-form">
@@ -13,19 +13,19 @@
 
 
                                 <label class="form-label">Name</label>
-                                <input type="text" class="form-control" id="employerName">
+                                <input type="text" class="form-control" id="candidateName">
 
                                 <label class="form-label mt-2">Email</label>
-                                <input type="text" class="form-control" id="employerEmail">
+                                <input type="text" class="form-control" id="candidateEmail">
 
                                 {{--                                <label class="form-label mt-2">Role</label>--}}
                                 {{--                                <select type="text" class="form-control form-select" id="employerRole">--}}
 
                                 {{--                                </select>--}}
-                                <label class="form-label mt-2">Status</label>
-                                <select type="text" class="form-control form-select" id="employerStatus">
+{{--                                <label class="form-label mt-2">Role</label>--}}
+{{--                                <select type="text" class="form-control form-select" id="employeeRole">--}}
 
-                                </select>
+{{--                                </select>--}}
 
 
                                 <input type="text" class="d-none" id="updateID">
@@ -40,7 +40,7 @@
                 <button id="update-modal-close" class="btn btn-outline-warning" data-bs-dismiss="modal"
                         aria-label="Close">Close
                 </button>
-                <button onclick="updateEmployerData()" id="update-btn" class="btn btn-outline-primary">Update</button>
+                <button onclick="updateCandidateData()" id="update-btn" class="btn btn-outline-primary">Update</button>
             </div>
 
         </div>
@@ -50,60 +50,49 @@
 
 <script>
 
-    async function fillStatusDropdown() {
-        let res = await axios.get(`/status-list`);
-        $('#employerStatus').empty();
-
-        res.data['data'].forEach(function (item, i) {
-            let f = ` <option value="${item}">${item === '0' ? 'pending' : 'active'}</option>`
-
-            $('#employerStatus').append(f)
-        })
-
-    }
 
 
-    async function fillEmployerData() {
+    async function fillCandidateData() {
         let id = $('#updateID').val();
         if (id.length === 0) {
             errorToast('id required !')
 
         } else {
-            await axios.get(`/employer-by-id/${id}`).then(async function (res) {
+            await axios.get(`/candidate-id/${id}`).then(async function (res) {
 
 
-                $('#employerName').val(res.data['data']['name'])
-                $('#employerEmail').val(res.data['data']['email'])
-                await fillStatusDropdown()
+                $('#candidateName').val(res.data['data']['name'])
+                $('#candidateEmail').val(res.data['data']['email'])
+
 
             }).catch(function (error) {
-                // console.log(error)
+                console.log(error)
             })
 
 
         }
     }
 
-    async function updateEmployerData() {
+    async function updateCandidateData() {
         let id = $('#updateID').val();
-        let name = $('#employerName').val();
-        let email = $('#employerEmail').val();
-        let status = $('#employerStatus').val();
+        let name = $('#candidateName').val();
+        let email = $('#candidateEmail').val();
 
+
+        console.log(id,name,email);
         let obj =
 
-        {
-            "name": name,
-            "email": email,
-            "status": status
-        }
+            {
+                "name": name,
+                "email": email
+            }
 
 
-        let res = await axios.post(`/employer-update/${id}`,obj)
+        let res = await axios.post(`/candidate-update/${id}`,obj)
         if(res.data['message']==='success')
         {
-            successToast('Employer Updated')
-            await employerList();
+            successToast('Candidate Updated')
+            await candidateList();
             $('#update-modal-close').click();
         }
         else

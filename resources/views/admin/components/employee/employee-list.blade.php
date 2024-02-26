@@ -71,6 +71,7 @@
 
         await axios.get('/employee-list')
             .then(function (response) {
+                $('#datatable').DataTable().destroy();
                 // Handle the successful response
                 $('#employeeList').empty();
                 response.data['data'].forEach(function (item,i)

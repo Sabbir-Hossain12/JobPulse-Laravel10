@@ -13,17 +13,17 @@
 
 
                                 <label class="form-label">Name</label>
-                                <input type="text" class="form-control" id="employerName">
+                                <input type="text" class="form-control" id="employeeName">
 
                                 <label class="form-label mt-2">Email</label>
-                                <input type="text" class="form-control" id="employerEmail">
+                                <input type="text" class="form-control" id="employeeEmail">
 
                                 {{--                                <label class="form-label mt-2">Role</label>--}}
                                 {{--                                <select type="text" class="form-control form-select" id="employerRole">--}}
 
                                 {{--                                </select>--}}
-                                <label class="form-label mt-2">Status</label>
-                                <select type="text" class="form-control form-select" id="employerStatus">
+                                <label class="form-label mt-2">Role</label>
+                                <select type="text" class="form-control form-select" id="employeeRole">
 
                                 </select>
 
@@ -40,7 +40,7 @@
                 <button id="update-modal-close" class="btn btn-outline-warning" data-bs-dismiss="modal"
                         aria-label="Close">Close
                 </button>
-                <button onclick="updateEmployerData()" id="update-btn" class="btn btn-outline-primary">Update</button>
+                <button onclick="updateEmployeeData()" id="update-btn" class="btn btn-outline-primary">Update</button>
             </div>
 
         </div>
@@ -50,14 +50,14 @@
 
 <script>
 
-    async function fillStatusDropdown() {
-        let res = await axios.get(`/status-list`);
-        $('#employerStatus').empty();
+    async function fillRoleDropdown() {
+        let res = await axios.get(`/role-list`);
+        $('#employeeRole').empty();
 
         res.data['data'].forEach(function (item, i) {
-            let f = ` <option value="${item}">${item === '0' ? 'pending' : 'active'}</option>`
+            let f = ` <option value="${item['role_name']}">${item['role_name']}</option>`
 
-            $('#employerStatus').append(f)
+            $('#employeeRole').append(f)
         })
 
     }
@@ -72,9 +72,9 @@
             await axios.get(`/employee-id/${id}`).then(async function (res) {
 
 
-                $('#employerName').val(res.data['data']['name'])
-                $('#employerEmail').val(res.data['data']['email'])
-                await fillStatusDropdown()
+                $('#employeeName').val(res.data['data']['name'])
+                $('#employeeEmail').val(res.data['data']['email'])
+                await fillRoleDropdown()
 
             }).catch(function (error) {
                 // console.log(error)
@@ -84,26 +84,27 @@
         }
     }
 
-    async function updateEmployerData() {
+    async function updateEmployeeData() {
         let id = $('#updateID').val();
-        let name = $('#employerName').val();
-        let email = $('#employerEmail').val();
-        let status = $('#employerStatus').val();
+        let name = $('#employeeName').val();
+        let email = $('#employeeEmail').val();
+        let role = $('#employeeRole').val();
 
+        console.log(id,name,email,role);
         let obj =
 
             {
                 "name": name,
                 "email": email,
-                "status": status
+                "role": role
             }
 
 
-        let res = await axios.post(`/employer-update/${id}`,obj)
+        let res = await axios.post(`/employee-update/${id}`,obj)
         if(res.data['message']==='success')
         {
             successToast('Employer Updated')
-            await employerList();
+            await employeeList();
             $('#update-modal-close').click();
         }
         else
