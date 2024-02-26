@@ -1,7 +1,3 @@
-
-{{--EMPLOYER DASHBOARD--}}
-
-
 @extends('layouts.sidenav')
 
 @section('include_content')
@@ -14,6 +10,6 @@
 
 @section('content')
 
-
+    @include('employer.components.jobs.job-list')
 
 @endsection

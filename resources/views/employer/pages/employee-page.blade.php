@@ -1,7 +1,3 @@
-
-{{--EMPLOYER DASHBOARD--}}
-
-
 @extends('layouts.sidenav')
 
 @section('include_content')

@@ -17,98 +17,34 @@
                                     <li class="menu-title" data-key="t-menu">Menu</li>
 
                                     <li class="">
-                                        <a href="{{url('/dashboard')}}" class="active" aria-expanded="false">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                 stroke-linecap="round" stroke-linejoin="round"
-                                                 class="feather feather-home">
-                                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                                            </svg>
+                                        <a href="{{route('employer.dashboard')}}" class="active" aria-expanded="false">
+                                           <i class="fas fa-home"> </i>
                                             <span data-key="t-dashboard">Dashboard</span>
                                         </a>
                                     </li>
 
                                     <li class="">
-                                        <a href="index.html" class="inactive" aria-expanded="false">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                 stroke-linecap="round" stroke-linejoin="round"
-                                                 class="feather feather-home">
-                                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                                            </svg>
-                                            <span data-key="t-dashboard">Customer</span>
+                                        <a href="{{route('employer.jobs')}}" class="inactive" aria-expanded="false">
+                                            <i class="fas fa-briefcase"> </i>
+                                            <span data-key="t-dashboard">Jobs</span>
                                         </a>
                                     </li>
                                     <li class="">
-                                        <a href="index.html" class="inactive" aria-expanded="false">
+                                        <a href="{{route('employer.employee')}}" class="inactive" aria-expanded="false">
 
-                                            <i class=" bx bx-shield-quarter "></i>
+                                            <i class="fas fa-users"></i>
 
-                                            <span data-key="t-dashboard">Customer</span>
+                                            <span data-key="t-dashboard">Employee</span>
                                         </a>
                                     </li>
                                     <li class="">
-                                        <a href="index.html" class="inactive" aria-expanded="false">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                 stroke-linecap="round" stroke-linejoin="round"
-                                                 class="feather feather-home">
-                                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                                            </svg>
-                                            <span data-key="t-dashboard">Customer</span>
+                                        <a href="{{route('employer.plugin')}}" class="inactive" aria-expanded="false">
+                                            <i class="fas fa-plug"></i>
+                                            <span data-key="t-dashboard">Plugins</span>
                                         </a>
                                     </li>
-                                    <li class="">
-                                        <a href="index.html" class="inactive" aria-expanded="false">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                 stroke-linecap="round" stroke-linejoin="round"
-                                                 class="feather feather-home">
-                                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                                            </svg>
-                                            <span data-key="t-dashboard">Customer</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="index.html" class="inactive" aria-expanded="false">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                 stroke-linecap="round" stroke-linejoin="round"
-                                                 class="feather feather-home">
-                                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                                            </svg>
-                                            <span data-key="t-dashboard">Customer</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="index.html" class="inactive" aria-expanded="false">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                 stroke-linecap="round" stroke-linejoin="round"
-                                                 class="feather feather-home">
-                                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                                            </svg>
-                                            <span data-key="t-dashboard">Customer</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="index.html" class="inactive" aria-expanded="false">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                 stroke-linecap="round" stroke-linejoin="round"
-                                                 class="feather feather-home">
-                                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                                            </svg>
-                                            <span data-key="t-dashboard">Customer</span>
-                                        </a>
-                                    </li>
+
+
 
 
 

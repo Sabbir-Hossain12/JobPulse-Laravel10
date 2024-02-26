@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CandidateforAdminControoler;
 use App\Http\Controllers\Admin\EmployeeAdminController;
 use App\Http\Controllers\Admin\EmployerForAdminController;
 use App\Http\Controllers\Employer\EmployerController;
+use App\Http\Controllers\Employer\JobForEmployerController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,11 +32,7 @@ require __DIR__ . '/auth.php';
 Route::get('/admin/login', [AdminController::class, 'create'])->name('admin.login');
 Route::post('/admin/login-submit', [AdminController::class, 'store'])->name('admin.login.submit');
 
-//candidates page
-Route::get('/candidate-list', [CandidateforAdminControoler::class, 'candidateList']);
-Route::get('/candidate-remove/{id}', [CandidateforAdminControoler::class, 'candidateRemove']);
-Route::get('/candidate-id/{id}', [CandidateforAdminControoler::class, 'candidateById']);
-Route::post('/candidate-update/{id}', [CandidateforAdminControoler::class, 'candidateUpdate']);
+
 
 
 Route::middleware('admin')->group(function () {
@@ -65,7 +62,11 @@ Route::middleware('admin')->group(function () {
     Route::get('/role-list', [EmployeeAdminController::class, 'adminRoleList']);
     Route::post('/employee-update/{id}', [EmployeeAdminController::class, 'employeeUpdate']);
 
-
+//candidates page
+    Route::get('/candidate-list', [CandidateforAdminControoler::class, 'candidateList']);
+    Route::get('/candidate-remove/{id}', [CandidateforAdminControoler::class, 'candidateRemove']);
+    Route::get('/candidate-id/{id}', [CandidateforAdminControoler::class, 'candidateById']);
+    Route::post('/candidate-update/{id}', [CandidateforAdminControoler::class, 'candidateUpdate']);
 
 
 
@@ -75,7 +76,7 @@ Route::middleware('admin')->group(function () {
 );
 
 
-//employer
+//employer Routes
 Route::get('/employer/login', [EmployerController::class, 'create'])->name('employer.login');
 Route::post('/employer/login-submit', [EmployerController::class, 'store'])->name('employer.login.submit');
 
@@ -96,10 +97,22 @@ Route::post('/employer/reset-password', [EmployerController::class, 'storeReset'
     ->name('employer.password.store');
 
 
-Route::middleware('employer')->group(function () {
+Route::middleware('employer')->prefix('employer')->group(function () {
 
-    Route::view('/employer/dashboard', 'employer.pages.dashboard')->name('employer.dashboard');
-    Route::get('/employer/logout', [EmployerController::class, 'destroy'])->name('employer.logout');
+    Route::view('/dashboard', 'employer.pages.dashboard')->name('employer.dashboard');
+    Route::get('/logout', [EmployerController::class, 'destroy'])->name('employer.logout');
+
+    Route::view('/jobs', 'employer.pages.jobs-page')->name('employer.jobs');
+    Route::view('/employee', 'employer.pages.employee-page')->name('employer.employee');
+    Route::view('/plugin', 'employer.pages.plugins-page')->name('employer.plugin');
+
+
+
+
 }
 
+//job page
+
 );
+    Route::get('/job-list',[JobForEmployerController::class,'jobList']);
+
