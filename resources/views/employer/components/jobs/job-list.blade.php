@@ -9,7 +9,7 @@
                     <p class="card-title-desc">In This Section we will find Job list and Create Jobs.
                     </p>
                     </div>
-                    <div><button class="btn btn-primary">Create Job</button></div>
+                    <div><a href="{{url('/job-create')}}"><button class="btn btn-primary">Create Job</button></div></a>
                 </div>
                 <div class="card-body">
 

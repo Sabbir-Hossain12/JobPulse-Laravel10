@@ -30,4 +30,12 @@ class JobForEmployerController extends Controller
 
         return responseHelper::out('success',$data,200);
     }
+
+
+
+    function jobStore(Request $request)
+    {
+        
+    }
+
 }

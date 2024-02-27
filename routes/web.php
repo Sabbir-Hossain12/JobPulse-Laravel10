@@ -115,4 +115,5 @@ Route::middleware('employer')->prefix('employer')->group(function () {
 
 );
     Route::get('/job-list',[JobForEmployerController::class,'jobList']);
+    Route::view('/job-create','employer.pages.job-create-page');
 
