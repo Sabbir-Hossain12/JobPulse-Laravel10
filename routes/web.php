@@ -33,8 +33,6 @@ Route::get('/admin/login', [AdminController::class, 'create'])->name('admin.logi
 Route::post('/admin/login-submit', [AdminController::class, 'store'])->name('admin.login.submit');
 
 
-
-
 Route::middleware('admin')->group(function () {
     Route::view('/admin/dashboard', 'admin.pages.dashboard')->name('admin.dashboard');
     Route::get('/admin/logout', [AdminController::class, 'destroy'])->name('admin.logout');
@@ -67,8 +65,6 @@ Route::middleware('admin')->group(function () {
     Route::get('/candidate-remove/{id}', [CandidateforAdminControoler::class, 'candidateRemove']);
     Route::get('/candidate-id/{id}', [CandidateforAdminControoler::class, 'candidateById']);
     Route::post('/candidate-update/{id}', [CandidateforAdminControoler::class, 'candidateUpdate']);
-
-
 
 
 }
@@ -107,13 +103,13 @@ Route::middleware('employer')->prefix('employer')->group(function () {
     Route::view('/plugin', 'employer.pages.plugins-page')->name('employer.plugin');
 
 
-
-
 }
 
 //job page
 
 );
-    Route::get('/job-list',[JobForEmployerController::class,'jobList']);
-    Route::view('/job-create','employer.pages.job-create-page');
-
+Route::get('/job-list', [JobForEmployerController::class, 'jobList']);
+Route::view('/job-create', 'employer.pages.job-create-page');
+Route::get('/job-category-list', [JobForEmployerController::class, 'jobCategoryList']);
+Route::get('/job-tag-list', [JobForEmployerController::class, 'jobTagsList']);
+Route::post('/job-store', [JobForEmployerController::class, 'jobStore']);

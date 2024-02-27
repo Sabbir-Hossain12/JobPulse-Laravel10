@@ -11,9 +11,9 @@ class JobTag extends Model
     use HasFactory;
 
 
-    public function jobs():BelongsToMany
+    public function jobs(): BelongsToMany
     {
-        return $this->belongsToMany(Job::class, 'job_tag_relation', 'job_tag_id', 'job_id');
-    }
+        return $this->belongsToMany(Job::class,'job_tag_relations','job_id','tag_id');
 
+    }
 }

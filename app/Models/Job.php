@@ -11,6 +11,7 @@ class Job extends Model
 {
     use HasFactory;
 
+    protected $fillable=['title','location','salary_range','deadline','category_id','description','responsibilities','requirement','employer_id','posted_at'];
 
     function employer():BelongsTo
     {
@@ -20,13 +21,10 @@ class Job extends Model
     {
         return $this->belongsTo(JobCategory::class,'category_id','id');
     }
-    public function tags():BelongsToMany
+    public function jobTags():BelongsToMany
     {
-        return $this->belongsToMany(JobTag::class, 'job_tag_relation', 'job_id', 'job_tag_id');
+        return $this->belongsToMany(JobTag::class,'job_tag_relations','job_id','tag_id');
     }
 
-//    function ()
-//    {
-//
-//    }
+
 }

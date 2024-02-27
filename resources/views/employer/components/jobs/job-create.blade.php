@@ -42,17 +42,16 @@
                                 <div class="mb-3">
                                     <label class="form-label">Select Category</label>
                                     <select class="form-select" id="jCat">
-                                        <option>Large select</option>
-                                        <option>Small select</option>
+
+
                                     </select>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label class="form-label">Select Tags</label>
-                                    <select class="" id="tags" multiple>
-                                        <option>PHP</option>
-                                        <option>Laravel</option>
-                                        <option>VueJS</option>
+                                    <label for="tags" class="form-label">Select Tags</label>
+                                    <select class="form-select" id="tags" multiple>
+{{--                                        <option value="1">Afghanistan</option>--}}
+
                                     </select>
                                 </div>
 
@@ -76,7 +75,7 @@
 
                         </div>
 
-                        <div><button type="submit" id="submit" class="text-center btn btn-primary">Post Job</button></div>
+                        <div><button onclick="jobSubmit()" type="submit" id="submit" class="text-center btn btn-primary">Post Job</button></div>
                     </div>
 
                 </div>
@@ -89,7 +88,14 @@
 
 <script>
 
-    new MultiSelectTag('tags')
+    (async ()=>{
+        await  tagDropdown()
+        new MultiSelectTag('tags')
+       await categoryDropdown()
+
+    })();
+
+
     let jDes;
     let jRes;
     let jReq;
@@ -119,18 +125,77 @@
             console.error(error);
         });
 
-    document.querySelector('#submit').addEventListener('click', () => {
+   // document.querySelector('#submit').addEventListener('click', () => {
+
+   async function jobSubmit() {
 
 
-    const editorData = jDes.getData();
-    const editorData2 = jRes.getData();
-    const editorData3 = jReq.getData();
-    let tags = $('#tags').val();
 
-        console.log(editorData)
 
-        console.log(editorData2)
-        console.log(editorData3)
-      });
+       let title= $('#jTitle').val();
+       let location= $('#jLocation').val();
+       let salary= $('#jSalary').val();
+       let deadline= $('#jDead').val();
+       let category= $('#jCat').val();
+       let tags= $('#tags').val();
+       let des = jDes.getData();
+       let resp = jRes.getData();
+       let req = jReq.getData();
+
+       let obj={
+           'title':title,
+           'location':location,
+           'salary_range':salary,
+           'deadline':deadline,
+           'category_id':category,
+           'description':des,
+           'responsibilities':resp,
+           'requirement':req,
+           'tags':tags
+
+
+       }
+
+      console.log(title, location, salary, deadline, category,tags,des,resp,req)
+
+       let res= await axios.post('/job-store',obj);
+       if(res.data['message']==='success')
+       {
+           successToast('Job Created')
+       }
+       else
+       {
+           errorToast('Error')
+       }
+   }
+
+
+
+   async function categoryDropdown()
+   {
+        let res= await axios.get('/job-category-list');
+
+        $('#jCat').empty();
+        res.data['data'].forEach(function(item,i)
+        {
+            let each=` <option value="${item['id']}">${item['name']}</option>`
+            $('#jCat').append(each)
+        })
+
+   }
+
+    async function tagDropdown()
+    {
+        let res2= await axios.get('/job-tag-list');
+
+      //  $('#tags').empty();
+        res2.data['data'].forEach(function(item,i)
+        {
+            let each2=` <option value="${item['id']}">${item['name']}</option>`
+            $('#tags').append(each2)
+        })
+
+    }
+
 
 </script>
