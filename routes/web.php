@@ -9,10 +9,18 @@ use App\Http\Controllers\Employer\JobForEmployerController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-
+//Home
 Route::get('/', function () {
     return view('pages.home-page');
 });
+//About-us
+Route::view('/about-us','pages.about-us-page');
+//blogs
+Route::view('/blogs-page','pages.blogs-page');
+
+Route::view('/contact-us','pages.contact-us-page');
+Route::view('/jobs-page','pages.jobs-page');
+
 
 //candidate
 Route::get('/dashboard', function () {
@@ -37,7 +45,7 @@ require __DIR__ . '/auth.php';
 Route::get('/admin/login', [AdminController::class, 'create'])->name('admin.login');
 Route::post('/admin/login-submit', [AdminController::class, 'store'])->name('admin.login.submit');
 
-
+Route::get('/employer-list', [EmployerForAdminController::class, 'employerList']);
 Route::middleware('admin')->group(function () {
     Route::view('/admin/dashboard', 'admin.pages.dashboard')->name('admin.dashboard');
     Route::get('/admin/logout', [AdminController::class, 'destroy'])->name('admin.logout');
@@ -51,7 +59,7 @@ Route::middleware('admin')->group(function () {
     Route::view('/admin/blogs', 'admin.pages.dashboard')->name('admin.blogs');
 
 //Employer Page
-    Route::get('/employer-list', [EmployerForAdminController::class, 'employerList']);
+
     Route::get('/employer-remove/{id}', [EmployerForAdminController::class, 'employerRemoveByid']);
 
     Route::get('/employer-by-id/{id}', [EmployerForAdminController::class, 'employerByid']);
@@ -116,5 +124,8 @@ Route::middleware('employer')->prefix('employer')->group(function () {
 Route::get('/job-list', [JobForEmployerController::class, 'jobList']);
 Route::view('/job-create', 'employer.pages.job-create-page');
 Route::get('/job-category-list', [JobForEmployerController::class, 'jobCategoryList']);
+Route::get('/job-count-by-category', [JobForEmployerController::class, 'JobCountByCategory']);
 Route::get('/job-tag-list', [JobForEmployerController::class, 'jobTagsList']);
 Route::post('/job-store', [JobForEmployerController::class, 'jobStore']);
+
+

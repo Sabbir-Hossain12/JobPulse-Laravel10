@@ -144,7 +144,7 @@
             </div>
         </div>
     </div> <!-- end col -->
-    </div>
+
 
     <script>new MultiSelectTag('tags') </script>
 
@@ -155,20 +155,38 @@
 
             async function profileSubmit()
             {
+                const educationInfo = [];
 
                 let contact= $('#contact').val();
-                let aaddress= $('#address').val();
+                let address= $('#address').val();
                 let link= $('#linkUrl').val();
                 let port= $('#portUrl').val();
 
-                let contact= $('#contact').val();
+                for (let i = 0; i < 3; i++) {
+                    const degreeType = document.getElementById(`degreeType_${i}`).value;
+                    const schoolName = document.getElementById(`school_${i}`).value;
+                    const major = document.getElementById(`major_${i}`).value;
+                    const passingYear = document.getElementById(`passYear_${i}`).value;
+                    const gpa = document.getElementById(`gpa_${i}`).value;
 
+                    educationInfo.push({
+                        degree_type: degreeType,
+                        school_name: schoolName,
+                        major: major,
+                        passing_year: passingYear,
+                        gpa: gpa,
+                    });
+                }
 
-
-                console.log($('#degreeType_0').val())
-                console.log($('#degreeType_1').val())
-                console.log($('#degreeType_2').val())
+                console.log(educationInfo)
             }
+
+
+
+                // console.log($('#degreeType_0').val())
+                // console.log($('#degreeType_1').val())
+                // console.log($('#degreeType_2').val())
+
         </script>
 
 @endsection

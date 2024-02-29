@@ -76,4 +76,10 @@ class JobForEmployerController extends Controller
         return responseHelper::out('success','',201);
     }
 
+    function JobCountByCategory(Request $request)
+    {
+        Job::where('category_id',$request->input('cat_id'))->count();
+    }
+
+
 }

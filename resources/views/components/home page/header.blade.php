@@ -16,22 +16,22 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="#">
+                    <a class="nav-link " aria-current="page" href="{{url('/about-us')}}">
                         <button class="btn btn-rounded btn-primary">About</button>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="#">
+                    <a class="nav-link " aria-current="page" href="{{url('/jobs-page')}}">
                         <button class="btn btn-rounded btn-primary">Jobs</button>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="#">
+                    <a class="nav-link " aria-current="page" href="{{url('/blogs-page')}}">
                         <button class="btn btn-rounded btn-primary">Blogs</button>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="#">
+                    <a class="nav-link " aria-current="page" href="{{url('/contact-us')}}">
                         <button class="btn btn-rounded btn-primary">Contacts</button>
                     </a>
                 </li>

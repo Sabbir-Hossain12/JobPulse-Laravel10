@@ -8,10 +8,11 @@
 
     @include('components.home page.hero')
 
+    @include('components.home page.company-list')
 
+    @include('components.home page.recent-jobs')
 
-
-
+    @include('components.home page.footer')
 
 
 
