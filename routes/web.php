@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CandidateforAdminControoler;
 use App\Http\Controllers\Admin\EmployeeAdminController;
 use App\Http\Controllers\Admin\EmployerForAdminController;
+use App\Http\Controllers\Candidate\JobforCandidateController;
 use App\Http\Controllers\Employer\EmployerController;
 use App\Http\Controllers\Employer\JobForEmployerController;
 use App\Http\Controllers\ProfileController;
@@ -36,6 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::view('/profile-create', 'candidate.pages.profile-page')->name('candidate.profile');
 //    Route::post('/profile-create-page',)
 
+    Route::post('/job-apply-submit',[JobforCandidateController::class,'jobApplySubmit']);
 });
 
 require __DIR__ . '/auth.php';
