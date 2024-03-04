@@ -82,16 +82,24 @@
 
                 <div class="card border">
                     <div class="card-header bg-transparent d-flex justify-content-between bg-soft-success">
-                        <h5 class="my-0 text-dark"> <i class="fas fa-briefcase"></i> ${item['title']}</h5>
+                <div>
+                       <a href="/job-details?id=${item['id']}"> <h4 class="my-0 text-dark">${item['title']}</h4><a>
+                       <p class="text-dark card-title my-2"> ${item['employer']['name']}</p>
+
+                </div>
                         <p class="my-0 text-dark fw-bold">${item['salary_range']}</p>
 
                     </div>
                     <div class="card-body d-flex justify-content-between">
+
                                 <div>
-                        <h5 class="card-title"><i class="fas fa-location-arrow"></i> ${item['location']}</h5>
+                        <p class="card-text mb-0 pb-0"><span class="text-success fw-bold">Location: </span> ${item['location']}</p>
                         <p class="card-text">tags,tags,tags</p>
+  <p class="card-text pt-2"><span class="text-success fw-bold">Deadline: </span>${item['deadline']}</p>
                             </div>
-                <div> <button data-id=${item['id']} class="btn apply btn-outline-primary btn-lg" >Apply </button>
+                <div> <button data-id=${item['id']} class="btn apply btn-outline-success btn-lg" >Apply </button>
+
+
                     </div>
                 </div>
             </div> `

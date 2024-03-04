@@ -9,16 +9,18 @@ use App\Models\JobCategory;
 use App\Models\JobTag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class JobForEmployerController extends Controller
 {
     function jobList()
     {
-        $data = Job::with(['employer', 'category'])->get();
+        $data = Job::with(['employer', 'category','applications'])->get();
 
         return responseHelper::out('success', $data, 200);
 
     }
+
 
     function jobByID(Request $request)
     {

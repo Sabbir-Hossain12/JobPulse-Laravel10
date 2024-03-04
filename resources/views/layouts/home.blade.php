@@ -8,33 +8,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description"/>
 
+    <!-- CSS here -->
+
+
+    <link rel="stylesheet" href=" {{asset('frontend')}}/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href=" {{asset('frontend')}}/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href=" {{asset('frontend')}}/assets/css/flaticon.css">
+    <link rel="stylesheet" href=" {{asset('frontend')}}/assets/css/price_rangs.css">
+    <link rel="stylesheet" href=" {{asset('frontend')}}/assets/css/slicknav.css">
+    <link rel="stylesheet" href=" {{asset('frontend')}}/assets/css/animate.min.css">
+    <link rel="stylesheet" href=" {{asset('frontend')}}/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href=" {{asset('frontend')}}/assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href=" {{asset('frontend')}}/assets/css/themify-icons.css">
+    <link rel="stylesheet" href=" {{asset('frontend')}}/assets/css/slick.css">
+    <link rel="stylesheet" href=" {{asset('frontend')}}/assets/css/nice-select.css">
+    <link rel="stylesheet" href=" {{asset('frontend')}}/assets/css/style.css">
 
 
 
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.3/components/heroes/hero-1/assets/css/hero-1.css">
+    <!-- Google Font -->
 
-    <link rel="stylesheet" href=" {{asset('https://unpkg.com/bs-brain@2.0.3/components/abouts/about-2/assets/css/about-2.css')}}">
-    <link rel="shortcut icon" href=" {{asset('assets')}}/images/favicon.ico">
-
-    <!-- preloader css -->
-    {{--    <link rel="stylesheet" href="assets/css/preloader.min.css" type="text/css"/>--}}
+    <link href="https://fonts.googleapis.com/css?family=Barlow:300,400,500,600,700,900|Muli:300,400,500,600,700,800,900&display=swap">
 
 
-    <!-- Bootstrap Css -->
-    <link href=" {{asset('assets')}}/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css"/>
 
-    <!-- Icons Css -->
-    <link href=" {{asset('assets')}}/css/icons.min.css" rel="stylesheet" type="text/css"/>
 
     {{--Custom--}}
 
     <link href="{{asset('assets/css/toastify.min.css')}}" rel="stylesheet"/>
 
-    <link href="{{asset('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css')}}"  rel="stylesheet"/>
 
-
-    <script src="{{asset('assets/js/jquery-3.7.0.min.js')}}"></script>
+{{--    <script src="{{asset('assets/js/jquery-3.7.0.min.js')}}"></script>--}}
     <script src="{{asset('assets/js/axios.min.js')}}"></script>
 
 
@@ -45,9 +49,9 @@
 
 </head>
 
-<body>
+<body style="overflow: visible;">
 
-
+@include('components.home page.header')
 
 
 <main>
@@ -59,13 +63,54 @@
 
 
 
+@include('components.home page.footer')
+
+
+
+
+
+
+
+
 
 <!-- JAVASCRIPT -->
-<script src=" {{asset('assets')}}/libs/jquery/jquery.min.js"></script>
-<script src=" {{asset('assets')}}/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+<!-- JS here -->
 
+<!-- All JS Custom Plugins Link Here here -->
+<script src=" {{asset('frontend')}}/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+<!-- Jquery, Popper, Bootstrap -->
+<script src=" {{asset('frontend')}}/assets/js/vendor/jquery-1.12.4.min.js"></script>
+<script src=" {{asset('frontend')}}/assets/js/popper.min.js"></script>
+<script src=" {{asset('frontend')}}/assets/js/bootstrap.min.js"></script>
+<!-- Jquery Mobile Menu -->
+<script src=" {{asset('frontend')}}//assets/js/jquery.slicknav.min.js"></script>
 
+<!-- Jquery Slick , Owl-Carousel Plugins -->
+<script src=" {{asset('frontend')}}/assets/js/owl.carousel.min.js"></script>
+<script src=" {{asset('frontend')}}/assets/js/slick.min.js"></script>
+<script src=" {{asset('frontend')}}/assets/js/price_rangs.js"></script>
+
+<!-- One Page, Animated-HeadLin -->
+<script src=" {{asset('frontend')}}/assets/js/wow.min.js"></script>
+<script src=" {{asset('frontend')}}/assets/js/animated.headline.js"></script>
+<script src=" {{asset('frontend')}}/assets/js/jquery.magnific-popup.js"></script>
+
+<!-- Scrollup, nice-select, sticky -->
+<script src=" {{asset('frontend')}}/assets/js/jquery.scrollUp.min.js"></script>
+<script src=" {{asset('frontend')}}/assets/js/jquery.nice-select.min.js"></script>
+<script src=" {{asset('frontend')}}/assets/js/jquery.sticky.js"></script>
+
+<!-- contact js -->
+<script src=" {{asset('frontend')}}/assets/js/contact.js"></script>
+<script src=" {{asset('frontend')}}/assets/js/jquery.form.js"></script>
+<script src=" {{asset('frontend')}}/assets/js/jquery.validate.min.js"></script>
+<script src=" {{asset('frontend')}}/assets/js/mail-script.js"></script>
+<script src=" {{asset('frontend')}}/assets/js/jquery.ajaxchimp.min.js"></script>
+
+<!-- Jquery Plugins, main Jquery -->
+<script src=" {{asset('frontend')}}/assets/js/plugins.js"></script>
+<script src=" {{asset('frontend')}}/assets/js/main.js"></script>
 
 
 

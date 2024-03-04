@@ -27,6 +27,7 @@
                                         <th>Posted at</th>
                                         <th>Deadline</th>
                                         <th>Added by</th>
+                                        <th>Applied</th>
 
                                         <th>Action
                                         </th>
@@ -72,10 +73,14 @@
                                             <td>${item['posted_at']}</td>
                                             <td>${item['deadline']}</td>
                                             <td>${item['employer']['name']}</td>
-                                            <td><div class="d-flex gap-2"><button data-id=${item['id']} class="btn btn-lg editbtn"><i class="fas fa-edit"></i></button>
-                                            <button  data-id=${item['id']} class="btn  deletebtn btn-lg"><i class="fas fa-trash-alt"></i></button></div></td>
+                                            <td>${item['applications'].length}</td>
+                                            <td><div class="d-flex gap-2"> <button  data-id=${item['id']} class="btn   btn-lg"><i class="far fa-eye"></i></button>
+                                               <button data-id=${item['id']} class="btn btn-lg editbtn"><i class="fas fa-edit"></i></button>
+                                            <button  data-id=${item['id']} class="btn  deletebtn btn-lg"><i class="fas fa-trash-alt"></i></button>
 
-                                        </tr>`
+                                            </div></td>
+
+                                                </tr>`
 
                     $('#tableList').append(foreach)
 

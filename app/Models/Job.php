@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Job extends Model
 {
@@ -24,6 +25,11 @@ class Job extends Model
     public function jobTags():BelongsToMany
     {
         return $this->belongsToMany(JobTag::class,'job_tag_relations','job_id','tag_id');
+    }
+
+    public function applications():HasMany
+    {
+        return $this->hasMany(Application::class,'job_id','id');
     }
 
 

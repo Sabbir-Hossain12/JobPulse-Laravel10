@@ -36,7 +36,7 @@
                             <div class="mt-3 mt-lg-0">
                                 <div class="mb-3">
                                     <label for="example-date-input" class="form-label">Deadline</label>
-                                    <input class="form-control" type="date" value="2019-08-19" id="jDead">
+                                    <input class="form-control" type="date" value="2024-01-01" id="jDead">
                                 </div>
 
                                 <div class="mb-3">
@@ -50,7 +50,7 @@
                                 <div class="mb-3">
                                     <label for="tags" class="form-label">Select Tags</label>
                                     <select class="form-select" id="tags" multiple>
-{{--                                        <option value="1">Afghanistan</option>--}}
+                                        {{--                                        <option value="1">Afghanistan</option>--}}
 
                                     </select>
                                 </div>
@@ -75,7 +75,11 @@
 
                         </div>
 
-                        <div><button onclick="jobSubmit()" type="submit" id="submit" class="text-center btn btn-primary">Post Job</button></div>
+                        <div>
+                            <button onclick="jobSubmit()" type="submit" id="submit" class="text-center btn btn-primary">
+                                Post Job
+                            </button>
+                        </div>
                     </div>
 
                 </div>
@@ -85,13 +89,12 @@
 </div>
 
 
-
 <script>
 
-    (async ()=>{
-        await  tagDropdown()
+    (async () => {
+        await tagDropdown()
         new MultiSelectTag('tags')
-       await categoryDropdown()
+        await categoryDropdown()
 
     })();
 
@@ -125,73 +128,77 @@
             console.error(error);
         });
 
-   // document.querySelector('#submit').addEventListener('click', () => {
+    // document.querySelector('#submit').addEventListener('click', () => {
 
-   async function jobSubmit() {
-
-
+    async function jobSubmit() {
 
 
-       let title= $('#jTitle').val();
-       let location= $('#jLocation').val();
-       let salary= $('#jSalary').val();
-       let deadline= $('#jDead').val();
-       let category= $('#jCat').val();
-       let tags= $('#tags').val();
-       let des = jDes.getData();
-       let resp = jRes.getData();
-       let req = jReq.getData();
+        let title = $('#jTitle').val();
+        let location = $('#jLocation').val();
+        let salary = $('#jSalary').val();
+        let deadline = $('#jDead').val();
+        let category = $('#jCat').val();
+        let tags = $('#tags').val();
+        let des = jDes.getData();
+        let resp = jRes.getData();
+        let req = jReq.getData();
 
-       let obj={
-           'title':title,
-           'location':location,
-           'salary_range':salary,
-           'deadline':deadline,
-           'category_id':category,
-           'description':des,
-           'responsibilities':resp,
-           'requirement':req,
-           'tags':tags
-
-
-       }
-
-      console.log(title, location, salary, deadline, category,tags,des,resp,req)
-
-       let res= await axios.post('/job-store',obj);
-       if(res.data['message']==='success')
-       {
-           successToast('Job Created')
-       }
-       else
-       {
-           errorToast('Error')
-       }
-   }
+        let obj = {
+            'title': title,
+            'location': location,
+            'salary_range': salary,
+            'deadline': deadline,
+            'category_id': category,
+            'description': des,
+            'responsibilities': resp,
+            'requirement': req,
+            'tags': tags
 
 
+        }
 
-   async function categoryDropdown()
-   {
-        let res= await axios.get('/job-category-list');
+        if (title.length === 0 || location.length === 0 || salary.length === 0 || deadline.length === 0 ||
+            category.length === 0 || tags.length === 0 || des.length === 0 || resp.length === 0 || req.length === 0) {
+
+            errorToast('All Input Field Required !')
+        } else {
+            try {
+                let res = await axios.post('/job-store', obj);
+                if (res.data['message'] === 'success') {
+                    successToast('Job Created')
+                } else {
+                    errorToast('Error')
+                }
+            } catch (e) {
+                console.log(e)
+
+            }
+
+        }
+
+        //  console.log(title, location, salary, deadline, category,tags,des,resp,req)
+
+
+    }
+
+
+    async function categoryDropdown() {
+        let res = await axios.get('/job-category-list');
 
         $('#jCat').empty();
-        res.data['data'].forEach(function(item,i)
-        {
-            let each=` <option value="${item['id']}">${item['name']}</option>`
+        res.data['data'].forEach(function (item, i) {
+            let each = ` <option value="${item['id']}">${item['name']}</option>`
             $('#jCat').append(each)
         })
 
-   }
+    }
 
-    async function tagDropdown()
-    {
-        let res2= await axios.get('/job-tag-list');
+    async function tagDropdown() {
+        let res2 = await axios.get('/job-tag-list');
 
-      //  $('#tags').empty();
-        res2.data['data'].forEach(function(item,i)
-        {
-            let each2=` <option value="${item['id']}">${item['name']}</option>`
+        //  $('#tags').empty();
+        res2.data['data'].forEach(function (item, i) {
+            let each2 = ` <option value="${item['id']}">${item['name']}</option>`
             $('#tags').append(each2)
         })
 

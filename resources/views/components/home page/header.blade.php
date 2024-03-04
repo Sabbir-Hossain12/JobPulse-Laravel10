@@ -1,134 +1,82 @@
-{{--Header--}}
-
-<nav class="navbar navbar-expand-lg bg-soft-light rounded" aria-label="Thirteenth navbar example">
-    <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11"
-                aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="bx bx-shekel "></i>
-        </button>
-
-        <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
-            <a class="navbar-brand col-lg-3 me-0" href="#">Centered nav</a>
-            <ul class="navbar-nav col-lg-6 justify-content-lg-center">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{url('/')}}">
-                        <button class="btn btn-rounded btn-primary">Home</button>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="{{url('/about-us')}}">
-                        <button class="btn btn-rounded btn-primary">About</button>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="{{url('/jobs-page')}}">
-                        <button class="btn btn-rounded btn-primary">Jobs</button>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="{{url('/blogs-page')}}">
-                        <button class="btn btn-rounded btn-primary">Blogs</button>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="{{url('/contact-us')}}">
-                        <button class="btn btn-rounded btn-primary">Contacts</button>
-                    </a>
-                </li>
-
-
-            </ul>
-            {{--            <div class="d-lg-flex col-lg-3 justify-content-lg-end">--}}
-            {{--                <button class="btn btn-primary">Button</button>--}}
-
-            {{--            </div>--}}
-
-
-            {{--            Login/Registration/Dashboard--}}
-
-
-            <div class="d-flex gap-2 justify-content-evenly align-items-center">
-
-                {{--Admin Dashboard--}}
-                @auth('admin')
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-rounded btn-success btn- dropdown-toggle "
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false">Hi,{{Auth::guard('admin')->user()->name  }} </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{route('admin.dashboard')}}">Go to Dashboard</a>
-                            <a class="dropdown-item" href="{{route('admin.logout')}}">Logout</a>
-
-
+<header>
+    <!-- Header Start -->
+    <div class="header-area header-transparrent">
+        <div class="headder-top header-sticky">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-2">
+                        <!-- Logo -->
+                        <div class="logo">
+                            <a href="index.html"><img src=" {{asset('frontend')}}/assets/img/logo/logo.png" alt=""></a>
                         </div>
                     </div>
-                @endauth
-
-                {{--Candidate Dashboard--}}
-                @auth('web')
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-rounded btn-success btn- dropdown-toggle "
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false">Hi,{{Auth::user()->name }} </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{route('candidate.dashboard')}}">Go to Dashboard</a>
-                            <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
-
-
+                    <div class="col-lg-9 col-md-9">
+                        <div class="menu-wrapper">
+                            <!-- Main-menu -->
+                            <div class="main-menu">
+                                <nav class="d-none d-lg-block">
+                                    <ul id="navigation">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="job_listing.html">Find a Jobs </a></li>
+                                        <li><a href="about.html">About</a></li>
+                                        <li><a href="#">Page</a>
+                                            <ul class="submenu">
+                                                <li><a href="blog.html">Blog</a></li>
+                                                <li><a href="single-blog.html">Blog Details</a></li>
+                                                <li><a href="elements.html">Elements</a></li>
+                                                <li><a href="job_details.html">job Details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <!-- Header-btn -->
+                            <div class="header-btn d-none f-right d-lg-block">
+                                <a href="#" class="btn head-btn1">Register</a>
+                                <a href="#" class="btn head-btn2">Login</a>
+                            </div>
                         </div>
                     </div>
-                @endauth
-                {{--Employer Dashboard--}}
-                @auth('employer')
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-rounded btn-success btn- dropdown-toggle "
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false">Hi,{{Auth::guard('employer')->user()->name }} </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{route('employer.dashboard')}}">Go to Dashboard</a>
-                            <a class="dropdown-item" href="{{route('employer.logout')}}">Logout</a>
-
-
+                    <!-- Mobile Menu -->
+                    <div class="col-12">
+                        <div class="mobile_menu d-block d-lg-none">
+                            <div class="slicknav_menu"><a href="#" aria-haspopup="true" role="button" tabindex="0"
+                                                          class="slicknav_btn slicknav_collapsed"
+                                                          style="outline: none;"><span
+                                        class="slicknav_menutxt">MENU</span><span class="slicknav_icon"><span
+                                            class="slicknav_icon-bar"></span><span
+                                            class="slicknav_icon-bar"></span><span
+                                            class="slicknav_icon-bar"></span></span></a>
+                                <ul class="slicknav_nav slicknav_hidden" style="display: none;" aria-hidden="true"
+                                    role="menu">
+                                    <li><a href="index.html" role="menuitem" tabindex="-1">Home</a></li>
+                                    <li><a href="job_listing.html" role="menuitem" tabindex="-1">Find a Jobs </a></li>
+                                    <li><a href="about.html" role="menuitem" tabindex="-1">About</a></li>
+                                    <li class="slicknav_collapsed slicknav_parent"><a href="#" role="menuitem"
+                                                                                      aria-haspopup="true" tabindex="-1"
+                                                                                      class="slicknav_item slicknav_row"
+                                                                                      style="outline: none;"><a href="#"
+                                                                                                                tabindex="-1">Page</a>
+                                            <span class="slicknav_arrow">+</span></a>
+                                        <ul class="submenu slicknav_hidden" role="menu" style="display: none;"
+                                            aria-hidden="true">
+                                            <li><a href="blog.html" role="menuitem" tabindex="-1">Blog</a></li>
+                                            <li><a href="single-blog.html" role="menuitem" tabindex="-1">Blog
+                                                    Details</a></li>
+                                            <li><a href="elements.html" role="menuitem" tabindex="-1">Elements</a></li>
+                                            <li><a href="job_details.html" role="menuitem" tabindex="-1">job Details</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="contact.html" role="menuitem" tabindex="-1">Contact</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                @endauth
-
-
-
-
-
-                @if(!Auth::user() && !Auth::guard('admin')->user() && !Auth::guard('employer')->user())
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-rounded btn-success dropdown-toggle "
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false">Login
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{route('login')}}">Candidate</a>
-                            <a class="dropdown-item" href="{{route('employer.login')}}">Employer</a>
-                            <a class="dropdown-item" href="{{route('admin.login')}}">Admin</a>
-
-
-                        </div>
-                    </div>
-
-
-
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-rounded btn-danger dropdown-toggle"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false">Register
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{route('register')}}">Candidate</a>
-                            <a class="dropdown-item" href="{{route('employer.register')}}">Employer</a>
-
-                        </div>
-                    </div>
-                @endif
-
-
+                </div>
             </div>
         </div>
     </div>
-</nav>
+    <!-- Header End -->
+</header>
