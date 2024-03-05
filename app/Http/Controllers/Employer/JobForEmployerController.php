@@ -38,7 +38,7 @@ class JobForEmployerController extends Controller
 
     function jobCategoryList()
     {
-        $data = JobCategory::get();
+        $data = JobCategory::with('jobs')->withCount('jobs')->orderBy('jobs_count','desc')->get();
 
         return responseHelper::out('success', $data, 200);
     }

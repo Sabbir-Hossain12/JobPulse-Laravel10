@@ -5,25 +5,9 @@
 
 @section('content')
 
-    @include('components.home page.header')
 
-   <section>
-
-       <div class="container">
-
-           <div class="card border">
-
-               <div class="card-header">
-                   
-               </div>
+@include('components.job page.job-details')
 
 
-           </div>
-
-       </div>
-
-   </section>
-
-    @include('components.home page.footer')
 
 @endsection

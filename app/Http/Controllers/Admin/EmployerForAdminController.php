@@ -15,7 +15,7 @@ class EmployerForAdminController extends Controller
 
     function employerList()
     {
-       $data= Employer::all();
+       $data= Employer::with('jobs')->withCount('jobs')->orderBy('jobs_count','desc')->get();
 
        return responseHelper::out('success',$data,200);
     }

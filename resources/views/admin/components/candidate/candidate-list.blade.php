@@ -61,6 +61,7 @@
                 $('#tableData').DataTable().destroy();
                 // Handle the successful response
                 $('#tableList').empty();
+
                 response.data['data'].forEach(function (item, i) {
                     let foreach = ` <tr class="odd">
                                             <td class="dtr-control sorting_1" tabindex="0">${i + 1}</td>
@@ -106,4 +107,5 @@
 
 
     }
+
 </script>

@@ -3,7 +3,7 @@
 
 
 @section('content')
-    @include('components.home page.header')
+
     <!-- Contact 3 - Bootstrap Brain Component -->
     <section class=" py-md-5 py-xl-8 py-5 my-5">
         <div class="container">
@@ -133,6 +133,6 @@
 
     </section>
 
-    @include('components.home page.footer')
+
 
 @endsection

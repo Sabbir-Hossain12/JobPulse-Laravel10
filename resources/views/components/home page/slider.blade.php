@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-xl-6 col-lg-9 col-md-10">
                         <div class="hero__caption">
-                            <h1>Find the most exciting startup jobs</h1>
+                            <h1>Let Your Career Story Begins Here</h1>
                         </div>
                     </div>
                 </div>

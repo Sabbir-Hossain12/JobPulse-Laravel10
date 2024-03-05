@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\EmployerForAdminController;
 use App\Http\Controllers\Candidate\JobforCandidateController;
 use App\Http\Controllers\Employer\EmployerController;
 use App\Http\Controllers\Employer\JobForEmployerController;
+use App\Http\Controllers\JobController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -48,6 +49,7 @@ Route::get('/admin/login', [AdminController::class, 'create'])->name('admin.logi
 Route::post('/admin/login-submit', [AdminController::class, 'store'])->name('admin.login.submit');
 
 Route::get('/employer-list', [EmployerForAdminController::class, 'employerList']);
+
 Route::middleware('admin')->group(function () {
     Route::view('/admin/dashboard', 'admin.pages.dashboard')->name('admin.dashboard');
     Route::get('/admin/logout', [AdminController::class, 'destroy'])->name('admin.logout');
@@ -130,5 +132,5 @@ Route::get('/job-tag-list', [JobForEmployerController::class, 'jobTagsList']);
 Route::post('/job-store', [JobForEmployerController::class, 'jobStore']);
 
 Route::view('/job-details','pages.job-details-page');
-
+Route::get('/job-details/{id}',[JobController::class,'jobDetailsByID']);
 
