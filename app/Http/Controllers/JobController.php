@@ -58,4 +58,19 @@ class JobController extends Controller
 
         }
     }
+
+    function jobListByCategory(Request $request)
+    {
+        $data= Job::where('category_id',$request->id)->with(['employer','category','applications'])->get();
+
+        if($data)
+        {
+            return responseHelper::out('success',$data,200);
+        }
+        else
+        {
+            return responseHelper::out('failed','',404);
+
+        }
+    }
 }

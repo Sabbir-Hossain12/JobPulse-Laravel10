@@ -139,5 +139,7 @@ Route::view('/job-search-result','pages.job-search-page');
 Route::get('/job-by-company/{id}',[JobController::class,'jobListByCompany']);
 Route::view('/job-by-company','pages.job-list-company-page');
 
-Route::get('/job-by-company/{id}',[JobController::class,'jobListByCompany']);
-Route::view('/job-by-company','pages.job-list-company-page');
+Route::get('/job-by-category/{id}',[JobController::class,'jobListByCategory']);
+Route::view('/job-by-category','pages.job-list-category-page');
+
+
