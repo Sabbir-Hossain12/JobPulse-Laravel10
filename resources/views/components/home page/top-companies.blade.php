@@ -50,7 +50,7 @@
 <!--                        <span class="flaticon-tour"></span>-->
 <!--                    </div>-->
                     <div class="services-cap">
-                        <h5><a href="job_listing.html">${item['name']}</a></h5>
+                        <h5><a href="/job-by-company?id=${item['id']}">${item['name']}</a></h5>
                         <span>(${item['jobs'].length})</span>
                     </div>
                 </div>

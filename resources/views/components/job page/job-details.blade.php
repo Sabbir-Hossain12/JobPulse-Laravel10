@@ -15,7 +15,7 @@
                                     <h4 id="job_title">Digital Marketer</h4>
                                 </a>
                                 <ul>
-                                    <li id="job_company">Creative Agency</li>
+                                    <li class="job_company">Creative Agency</li>
                                     <li id="job_location"><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
                                     <li id="job_salary">$3500 - $4000</li>
                                 </ul>
@@ -80,13 +80,13 @@
                         <ul>
                             <li>Posted date : <span id="posted_date">12 Aug 2019</span></li>
                             <li>Location : <span id="location">New York</span></li>
-                            <li>Vacancy : <span>02</span></li>
-                            <li>Job nature : <span>Full time</span></li>
-                            <li>Salary : <span>$7,800 yearly</span></li>
-                            <li>Application date : <span>12 Sep 2020</span></li>
+{{--                            <li>Vacancy : <span>02</span></li>--}}
+{{--                            <li>Job nature : <span>Full time</span></li>--}}
+                            <li>Salary : <span id="salary"></span></li>
+                            <li>Deadline : <span id="deadline">12 Sep 2020</span></li>
                         </ul>
                         <div class="apply-btn2">
-                            <a href="#" class="btn">Apply Now</a>
+                            <button  class="btn" id="apply">Apply Now</button>
                         </div>
                     </div>
                     <div class="post-details4  mb-50">
@@ -94,13 +94,13 @@
                         <div class="small-section-tittle">
                             <h4>Company Information</h4>
                         </div>
-                        <span>Colorlib</span>
+                        <span class="job_company">Colorlib</span>
                         <p>It is a long established fact that a reader will be distracted by the readable content of
                             a page when looking at its layout.</p>
                         <ul>
-                            <li>Name: <span>Colorlib </span></li>
-                            <li>Web : <span> colorlib.com</span></li>
-                            <li>Email: <span>carrier.colorlib@gmail.com</span></li>
+                            <li>Name: <span class="job_company">Colorlib </span></li>
+{{--                            <li>Web : <span> colorlib.com</span></li>--}}
+                            <li>Email: <span id="company_email">carrier.colorlib@gmail.com</span></li>
                         </ul>
                     </div>
                 </div>
@@ -109,7 +109,28 @@
     </div>
 </section>
 
+{{--Modal--}}
+<section>
+    <div class="modal animated zoomIn" id="apply-modal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <h3 class=" mt-3 text-warning">Apply ?</h3>
+                    <p class="mb-3">This Action Cannot be undone !</p>
+                    <input class="" id="applyID"/>
+                </div>
+                <div class="modal-footer justify-content-end">
+                    <div>
+                        <button type="button" id="delete-modal-close" class="btn  mx-2" data-dismiss="modal">Cancel</button>
+                        <button onclick="jobApply()" type="button" id="confirmDelete" class="btn btn-outline-success mx-2" >Apply</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <script>
+
     let para = new URLSearchParams(window.location.search)
     let id = para.get('id');
 
@@ -126,15 +147,69 @@
 
         if (res.data['message'] === 'success') {
             $('#job_title').text(item['title']);
-            $('#job_company').text(item['employer']['name'])
+            $('.job_company').text(item['employer']['name'])
             $('#job_location').text(item['location']);
             $('#job_salary').text(item['salary_range']);
             $('#job_des').html(item['description']);
             $('#job_res').html(item['responsibilities']);
             $('#job_req').html(item['requirement']);
 
+            $('#posted_date').text(item['formatted_created_at']);
+            $('#location').text(item['location'])
+            $('#salary').text(item['salary_range']);
+            $('#deadline').text(item['formatted_deadline']);
+
+            $('#company_email').text(item['employer']['email'])
+
+            $('#applyID').val(id)
+
         }
+
+        $('#apply').on('click',function ()
+        {
+            $('#apply-modal').modal('show')
+            $('#applyID').val(id);
+
+        })
 
 
     }
+
+
+
+   async function jobApply()
+   {
+       let job_id=  $('#applyID').val();
+
+       if(job_id.length===0)
+       {
+           errorToast('ID required');
+       }
+       else
+       {
+           try {
+               let res= await axios.post('/job-apply-submit',{job_id:job_id})
+               if( res.data['message']==='success')
+               {
+                   successToast('Application Submitted');
+                   $('#delete-modal-close').click()
+               }
+               else
+               {
+                   errorToast(res.data['message']);
+                   $('#delete-modal-close').click()
+               }
+
+           }
+           catch (e) {
+
+               if(e.response.status===401)
+               {
+                   window.location.href='/login'
+               }
+
+           }
+
+       }
+   }
 </script>

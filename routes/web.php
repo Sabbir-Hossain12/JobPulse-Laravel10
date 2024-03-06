@@ -133,4 +133,11 @@ Route::post('/job-store', [JobForEmployerController::class, 'jobStore']);
 
 Route::view('/job-details','pages.job-details-page');
 Route::get('/job-details/{id}',[JobController::class,'jobDetailsByID']);
+Route::get('/job-search/{title}',[JobController::class,'jobSearch']);
+Route::view('/job-search-result','pages.job-search-page');
 
+Route::get('/job-by-company/{id}',[JobController::class,'jobListByCompany']);
+Route::view('/job-by-company','pages.job-list-company-page');
+
+Route::get('/job-by-company/{id}',[JobController::class,'jobListByCompany']);
+Route::view('/job-by-company','pages.job-list-company-page');
