@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\helper\responseHelper;
+use App\Models\Application;
 use App\Models\Job;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class JobController extends Controller
 {
@@ -80,5 +82,25 @@ class JobController extends Controller
             return responseHelper::out('failed','',404);
 
         }
+    }
+
+    function jobListByApplication()
+    {
+        $data=    Application::where('candidate_id',Auth::guard('web')->id())->with('job')->get();
+
+        if($data)
+        {
+            // Convert created_at timestamp to a formatted date using Carbon
+            foreach ($data as $single) {
+
+
+                $formattedCreatedAt = Carbon::parse($single->created_at)->format('d M Y');
+                // Add the formatted created_at date to the data
+                $single->formatted_applied_at = $formattedCreatedAt;
+            }
+            return responseHelper::out('success',$data,200);
+        }
+        return responseHelper::out('failed','',404);
+
     }
 }

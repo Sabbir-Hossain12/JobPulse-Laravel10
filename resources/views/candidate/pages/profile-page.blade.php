@@ -146,28 +146,36 @@
     </div> <!-- end col -->
 
 
-    <script>new MultiSelectTag('tags') </script>
+{{--    <script>new MultiSelectTag('tags') </script>--}}
 
 
 
 
         <script>
 
-            async function profileSubmit()
-            {
+            async function profileSubmit() {
                 const educationInfo = [];
 
-                let contact= $('#contact').val();
-                let address= $('#address').val();
-                let link= $('#linkUrl').val();
-                let port= $('#portUrl').val();
+                let contact = $('#contact').val();
+                let address = $('#address').val();
+                let link = $('#linkUrl').val();
+                let port = $('#portUrl').val();
 
                 for (let i = 0; i < 3; i++) {
+
+
                     const degreeType = document.getElementById(`degreeType_${i}`).value;
                     const schoolName = document.getElementById(`school_${i}`).value;
                     const major = document.getElementById(`major_${i}`).value;
                     const passingYear = document.getElementById(`passYear_${i}`).value;
                     const gpa = document.getElementById(`gpa_${i}`).value;
+
+                    if(degreeType.length===0 || schoolName.length===0 || major.length===0 || passingYear.length===0 || gpa.length===0)
+                    {
+                        errorToast('Please Select All fields')
+                    }
+                    else
+                    {
 
                     educationInfo.push({
                         degree_type: degreeType,
@@ -176,7 +184,9 @@
                         passing_year: passingYear,
                         gpa: gpa,
                     });
+                    }
                 }
+
 
                 console.log(educationInfo)
             }

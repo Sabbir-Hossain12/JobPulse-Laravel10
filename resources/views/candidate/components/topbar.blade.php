@@ -37,8 +37,9 @@
             {{--                </div>--}}
             {{--            </form>--}}
         </div>
-
-        <div class="d-flex justify-content-center align-items-center"><i class="fas fa-user-alt"> </i> <span class="px-2 logo-txt ">Candidate Dashboard</span></div>
+        {!! request()->routeIs('candidate.dashboard') ? '<div class="d-flex justify-content-center align-items-center"><i class="fas fa-user-alt"> </i> <span class="px-2 logo-txt ">Candidate Dashboard</span></div>' : '' !!}
+        {!!   request()->routeIs('candidate.jobs') ? '<div class="d-flex justify-content-center align-items-center"><i class="fas fa-user-alt"> </i> <span class="px-2 logo-txt ">Candidate Jobs</span></div>' : '' !!}
+        {!! request()->routeIs('candidate.profile') ? '<div class="d-flex justify-content-center align-items-center"><i class="fas fa-user-alt"> </i> <span class="px-2 logo-txt ">Candidate Profile</span></div>' : '' !!}
 
         <div class="d-flex">
 

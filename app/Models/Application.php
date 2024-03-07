@@ -18,6 +18,6 @@ protected $fillable=['job_id','candidate_id'];
     }
     function job():BelongsTo
     {
-        return  $this->belongsTo(User::class,'job_id','id');
+        return  $this->belongsTo(Job::class,'job_id','id');
     }
 }

@@ -17,20 +17,20 @@
                                     <li class="menu-title" data-key="t-menu">Menu</li>
 
                                     <li class="">
-                                        <a href="{{route('candidate.dashboard')}}" class="active" aria-expanded="false">
+                                        <a href="{{route('candidate.dashboard')}}" class="{{ request()->routeIs('candidate.dashboard') ? 'active' : 'inactive' }}" aria-expanded="false">
                                            <i class="fas fa-home"> </i>
                                             <span data-key="t-dashboard">Dashboard</span>
                                         </a>
                                     </li>
 
                                     <li class="">
-                                        <a href="{{route('candidate.jobs')}}" class="inactive" aria-expanded="false">
+                                        <a href="{{route('candidate.jobs')}}" class="{{ request()->routeIs('candidate.jobs') ? 'active' : 'inactive' }}" aria-expanded="false">
                                             <i class="fas fa-briefcase"> </i>
                                             <span data-key="t-dashboard">Jobs</span>
                                         </a>
                                     </li>
                                     <li class="">
-                                        <a href="{{route('candidate.profile')}}" class="inactive" aria-expanded="false">
+                                        <a href="{{route('candidate.profile')}}" class="{{ request()->routeIs('candidate.profile') ? 'active' : 'inactive' }}" aria-expanded="false">
 
                                             <i class="fas fa-users"></i>
 
