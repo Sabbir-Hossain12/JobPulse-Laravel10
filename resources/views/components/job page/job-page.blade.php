@@ -202,11 +202,12 @@
             <div class="col-xl-12">
                 <div class="single-wrap d-flex justify-content-center">
                     <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-start">
-                            <li class="page-item active"><a class="page-link" href="#">01</a></li>
-                            <li class="page-item"><a class="page-link" href="#">02</a></li>
-                            <li class="page-item"><a class="page-link" href="#">03</a></li>
-                            <li class="page-item"><a class="page-link" href="#"><span class="ti-angle-right"></span></a></li>
+                        <ul class="pagination justify-content-start" id="paginationLink">
+{{--                            <li class="page-item active"><a class="page-link" href="#">01</a></li>--}}
+{{--                            <li class="page-item"><a class="page-link" href="#">02</a></li>--}}
+{{--                            <li class="page-item"><a class="page-link" href="#">03</a></li>--}}
+                            <li class="page-item"><button class="page-link" onclick="handlePrevious()"><span class="ti-angle-left"></span></button></li>
+                            <li class="page-item"><button class="page-link"  onclick="handleNext()"><span class="ti-angle-right"></span></button></li>
                         </ul>
                     </nav>
                 </div>
@@ -237,24 +238,28 @@
     </div>
 </section>
 <script>
-
+    let currentPage=1;
     (async ()=>
     {
         await    jobList();
+
     })()
+
 
 
     async function jobList() {
 
-        let res = await axios.get('/job-list')
+
+
+        let res = await axios.get(`/job-list/?page=${currentPage}`)
 
         $('#jobList').empty()
-        res.data['data'].slice(0, 7).forEach(function (item, i) {
+        res.data['data'].data.forEach(function (item, i) {
             let forEach = `<div class="single-job-items mb-30">
                     <div class="job-items">
-                        <div class="company-img">
-                            <a href=""><img src="{{asset('assets')}}/img/icon/job-list1.png" alt=""></a>
-                        </div>
+                        {{--<div class="company-img">--}}
+                        {{--    <a href=""><img src="{{asset('assets')}}/img/icon/job-list1.png" alt=""></a>--}}
+                        {{--</div>--}}
                         <div class="job-tittle">
                             <a href="/job-details?id=${item['id']}"><h4>${item['title']}</h4></a>
                             <ul>
@@ -273,6 +278,9 @@
             $('#jobList').append(forEach);
 
         })
+
+
+
         $('.apply').on('click',async function()
         {
             let id= $(this).data('id');
@@ -283,6 +291,21 @@
 
         })
 
+
+    }
+    async function handlePrevious()
+    {
+        if(currentPage>1)
+        {
+            currentPage--;
+           await jobList()
+        }
+    }
+    async function handleNext()
+    {
+
+            currentPage++;
+            await jobList()
 
     }
 

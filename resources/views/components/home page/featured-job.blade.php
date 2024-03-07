@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="browse-btn2 text-center mt-50">
-                    <a href="" class="border-btn2">Browse All Jobs</a>
+                    <a href="{{url('/jobs-page')}}" class="border-btn2">Browse All Jobs</a>
                 </div>
             </div>
         </div>
@@ -59,7 +59,7 @@
         let res = await axios.get('/job-list')
 
         $('#jobList').empty()
-        res.data['data'].slice(0, 5).forEach(function (item, i) {
+        res.data['data'].data.forEach(function (item, i) {
             let forEach = `<div class="single-job-items mb-30">
                     <div class="job-items">
                         <div class="company-img">

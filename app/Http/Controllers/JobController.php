@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
+    function jobList()
+    {
+        $data = Job::with(['employer', 'category','applications'])->paginate(7)->withQueryString();
+
+        return responseHelper::out('success', $data, 200);
+
+    }
     function jobDetailsByID(Request $request)
     {
         $data= Job::where('id',$request->id)->with(['employer','category','applications'])->first();
@@ -46,6 +53,7 @@ class JobController extends Controller
 
     function jobListByCompany(Request $request)
     {
+
         $data= Job::where('employer_id',$request->id)->with(['employer','category','applications'])->get();
 
         if($data)
