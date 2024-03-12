@@ -12,6 +12,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call(SkillSeeder::class);
+
         $this->call(JobTagRelationSeeder::class);
 //        $this->call(JobSeeder::class);
 //        $this->call(JobTagSeeder::class);

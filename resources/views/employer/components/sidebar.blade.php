@@ -17,20 +17,20 @@
                                     <li class="menu-title" data-key="t-menu">Menu</li>
 
                                     <li class="">
-                                        <a href="{{route('employer.dashboard')}}" class="active" aria-expanded="false">
+                                        <a href="{{route('employer.dashboard')}}" class="{{ request()->routeIs('employer.dashboard') ? 'active' : 'inactive' }}" aria-expanded="false">
                                            <i class="fas fa-home"> </i>
                                             <span data-key="t-dashboard">Dashboard</span>
                                         </a>
                                     </li>
 
                                     <li class="">
-                                        <a href="{{route('employer.jobs')}}" class="inactive" aria-expanded="false">
+                                        <a href="{{route('employer.jobs')}}" class="{{ request()->routeIs('employer.jobs') ? 'active' : 'inactive' }}" aria-expanded="false">
                                             <i class="fas fa-briefcase"> </i>
                                             <span data-key="t-dashboard">Jobs</span>
                                         </a>
                                     </li>
                                     <li class="">
-                                        <a href="{{route('employer.employee')}}" class="inactive" aria-expanded="false">
+                                        <a href="{{route('employer.employee')}}" class="{{ request()->routeIs('employer.employee') ? 'active' : 'inactive' }}" aria-expanded="false">
 
                                             <i class="fas fa-users"></i>
 
@@ -38,7 +38,7 @@
                                         </a>
                                     </li>
                                     <li class="">
-                                        <a href="{{route('employer.plugin')}}" class="inactive" aria-expanded="false">
+                                        <a href="{{route('employer.plugin')}}" class="{{ request()->routeIs('employer.plugin') ? 'active' : 'inactive' }}" aria-expanded="false">
                                             <i class="fas fa-plug"></i>
                                             <span data-key="t-dashboard">Plugins</span>
                                         </a>

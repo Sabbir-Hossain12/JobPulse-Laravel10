@@ -60,13 +60,14 @@
 
     async function jobList() {
 
-        await axios.get('/job-list')
+        await axios.get('/job-list-all')
             .then(function (response) {
-// Destroy existing DataTable instance
+                let jobList=response.data['data']
+                // Destroy existing DataTable instance
                 $('#tableData').DataTable().destroy();
                 // Handle the successful response
                 $('#tableList').empty();
-                response.data['data'].forEach(function (item, i) {
+                jobList.forEach(function (item, i) {
                     let foreach = ` <tr class="odd">
                                             <td class="dtr-control sorting_1" tabindex="0">${i + 1}</td>
                                             <td class="dtr-control sorting_1" tabindex="0">${item['title']}</td>

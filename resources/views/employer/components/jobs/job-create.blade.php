@@ -50,7 +50,7 @@
                                 <div class="mb-3">
                                     <label for="tags" class="form-label">Select Tags</label>
                                     <select class="form-select" id="tags" multiple>
-                                        {{--                                        <option value="1">Afghanistan</option>--}}
+
 
                                     </select>
                                 </div>

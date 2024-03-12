@@ -6,6 +6,7 @@ use App\helper\responseHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Application;
 use App\Models\CandidateProfile;
+use App\Models\Education;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -53,6 +54,45 @@ class JobforCandidateController extends Controller
         catch (\Exception $exception)
         {
             return responseHelper::out($exception->getMessage(),'',400);
+        }
+    }
+
+    function profile(Request $request)
+    {
+        try {
+
+            foreach ($request->input('education') as $education) {
+                Education::updateOrCreate(
+                    ['id' => $education['id']],
+                    [
+                        'degree' => $education['degree'],
+                        'school' => $education['school'],
+                        'major' => $education['major'],
+                        'passed_year' => $education['passed_year'],
+                        'cgpa' => $education['cgpa'],
+                    ]
+                );
+            }
+
+
+//            CandidateProfile::createOrUpdate([
+//
+//               'contact_number'=> $request->input(''),
+//                'address'=> '',
+//                'portfolio_url' =>'',
+//                'linkedin_url'=>'',
+//                'education_id' =>'',
+//                'experience_id'=>''
+
+//            ]);
+
+
+
+        }
+
+        catch (\Exception $exception)
+        {
+
         }
     }
 }

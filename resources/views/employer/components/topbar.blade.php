@@ -37,9 +37,10 @@
             {{--                </div>--}}
             {{--            </form>--}}
         </div>
-
-        <div class="d-flex justify-content-center align-items-center"><i class="fas fa-user-alt"> </i> <span class="px-2 logo-txt ">Employer Dashboard</span></div>
-
+        {!! request()->routeIs('employer.dashboard') ? '<div class="d-flex justify-content-center align-items-center"><i class="fas fa-user-alt"> </i> <span class="px-2 logo-txt ">Employer Dashboard</span></div>' : '' !!}
+        {!!   request()->routeIs('employer.jobs') ? '<div class="d-flex justify-content-center align-items-center"><i class="fas fa-user-alt"> </i> <span class="px-2 logo-txt ">Employer Job List</span></div>' : '' !!}
+        {!! request()->routeIs('employer.employee') ? '<div class="d-flex justify-content-center align-items-center"><i class="fas fa-user-alt"> </i> <span class="px-2 logo-txt ">Employee List</span></div>' : '' !!}
+        {!! request()->routeIs('employer.plugin') ? '<div class="d-flex justify-content-center align-items-center"><i class="fas fa-user-alt"> </i> <span class="px-2 logo-txt ">Plugins</span></div>' : '' !!}
         <div class="d-flex">
 
 

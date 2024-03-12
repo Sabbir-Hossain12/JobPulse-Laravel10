@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('educational_informations', function (Blueprint $table) {
+        Schema::create('experiences', function (Blueprint $table) {
             $table->id();
-            $table->string('degree');
-            $table->string('school');
-            $table->string('major');
-            $table->string('passed_year');
-            $table->string('cgpa');
+
+            $table->string('name');
+            $table->string('institute_name');
+
+            $table->date('joining_date');
+            $table->date('departure_date');
 
 
             $table->timestamp('created_at')->useCurrent();
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('educational_informations');
+        Schema::dropIfExists('experiences');
     }
 };

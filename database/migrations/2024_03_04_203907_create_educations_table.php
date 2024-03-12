@@ -11,16 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('candidate_profiles', function (Blueprint $table) {
+        Schema::create('educations', function (Blueprint $table) {
             $table->id();
-            $table->string('img')->nullable();
-            $table->string('contact_number');
-            $table->string('address');
-            $table->string('portfolio_url')->nullable();
-            $table->string('linkedin_url')->nullable();
+            $table->string('degree');
+            $table->string('school');
+            $table->string('major');
+            $table->string('passed_year');
+            $table->string('cgpa');
 
-            $table->unsignedBigInteger('edu_info_id');
-            $table->foreign('edu_info_id')->references('id')->on('educational_informations');
 
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('candidate_profiles');
+        Schema::dropIfExists('educational_informations');
     }
 };

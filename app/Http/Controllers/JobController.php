@@ -18,6 +18,16 @@ class JobController extends Controller
         return responseHelper::out('success', $data, 200);
 
     }
+
+    function jobListAll()
+    {
+        $data = Job::with(['employer', 'category','applications'])->get();
+
+        return responseHelper::out('success', $data, 200);
+
+    }
+
+
     function jobDetailsByID(Request $request)
     {
         $data= Job::where('id',$request->id)->with(['employer','category','applications'])->first();
