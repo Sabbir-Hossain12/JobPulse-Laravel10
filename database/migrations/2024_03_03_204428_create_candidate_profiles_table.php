@@ -19,14 +19,6 @@ return new class extends Migration
             $table->string('portfolio_url')->nullable();
             $table->string('linkedin_url')->nullable();
 
-            $table->unsignedBigInteger('education_id');
-            $table->foreign('education_id')->references('id')->on('educations');
-
-            $table->unsignedBigInteger('experience_id');
-            $table->foreign('experience_id')->references('id')->on('experiences');
-
-            $table->unsignedBigInteger('training_id');
-            $table->foreign('training_id')->references('id')->on('trainings');
 
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();

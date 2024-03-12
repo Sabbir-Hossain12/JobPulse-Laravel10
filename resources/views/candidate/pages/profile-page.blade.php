@@ -57,7 +57,7 @@
 
 
                                     <div class="mb-3">
-                                        <label for="tags" class="form-label">Select Tags</label>
+                                        <label for="tags" class="form-label">Select Skills</label>
                                         <select class="form-select" id="skills" multiple>
 
                                                     <option>Sabbir</option>
@@ -320,6 +320,18 @@
                 }
             }
 
+            let res= await axios.post('/candidate-profile',{educationInfo: educationInfo,
+
+                contact: contact,address:address,link:link,port:port})
+
+if(res.status===201)
+{
+    successToast('Profile Updated !')
+}
+else
+{
+    errorToast(res.data['message'])
+}
 
             console.log(educationInfo)
         }

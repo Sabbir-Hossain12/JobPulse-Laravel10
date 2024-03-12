@@ -20,6 +20,8 @@ return new class extends Migration
             $table->date('joining_date');
             $table->date('departure_date');
 
+            $table->unsignedBigInteger('candidate_profile_id');
+            $table->foreign('candidate_profile_id')->references('id')->on('candidate_profiles');
 
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();

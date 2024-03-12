@@ -145,4 +145,6 @@ Route::view('/job-by-category','pages.job-list-category-page');
 
 Route::get('/applications-candidate',[JobController::class,'jobListByApplication']);
 
+Route::post('/candidate-profile',[JobforCandidateController::class,'profileCreate']);
+
 

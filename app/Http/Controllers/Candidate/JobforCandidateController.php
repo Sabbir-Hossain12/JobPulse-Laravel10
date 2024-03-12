@@ -57,42 +57,40 @@ class JobforCandidateController extends Controller
         }
     }
 
-    function profile(Request $request)
+    function profileCreate(Request $request)
     {
         try {
 
-            foreach ($request->input('education') as $education) {
-                Education::updateOrCreate(
-                    ['id' => $education['id']],
-                    [
-                        'degree' => $education['degree'],
-                        'school' => $education['school'],
-                        'major' => $education['major'],
-                        'passed_year' => $education['passed_year'],
-                        'cgpa' => $education['cgpa'],
-                    ]
-                );
-            }
-
-
-//            CandidateProfile::createOrUpdate([
+//            foreach ($request->input('educationInfo') as $education) {
+//                Education::create(
 //
-//               'contact_number'=> $request->input(''),
-//                'address'=> '',
-//                'portfolio_url' =>'',
-//                'linkedin_url'=>'',
-//                'education_id' =>'',
-//                'experience_id'=>''
+//                    [
+//                        'degree' => $education['degree_type'],
+//                        'school' => $education['school_name'],
+//                        'major' => $education['major'],
+//                        'passed_year' => $education['passing_year'],
+//                        'cgpa' => $education['gpa'],
+//                    ]
+//                );
+//            }
 
-//            ]);
 
+            CandidateProfile::updateOrCreate([
 
+               'contact_number'=> $request->input('contact'),
+                'address'=> $request->input('address'),
+                'portfolio_url' =>$request->input('link'),
+                'linkedin_url'=>$request->input('port'),
+
+            ]);
+
+            return responseHelper::out('success','',201);
 
         }
 
         catch (\Exception $exception)
         {
-
+            return responseHelper::out($exception->getMessage(),'',404);
         }
     }
 }
