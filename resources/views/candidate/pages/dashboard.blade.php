@@ -74,7 +74,7 @@
 
                             <span class="text-muted mb-3 lh-1 d-block text-truncate card-title">Job Saved</span>
                             <h4 class="mb-3">
-                                <span class="counter-value" data-target="865.2">9</span>
+                                <span class="counter-value" data-target="1">9</span>
                             </h4>
                         </div>
                     </div>
