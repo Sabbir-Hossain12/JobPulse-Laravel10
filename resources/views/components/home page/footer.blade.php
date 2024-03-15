@@ -9,7 +9,8 @@
                             <div class="footer-tittle">
                                 <h4>About Us</h4>
                                 <div class="footer-pera">
-                                    <p>Heaven frucvitful doesn't cover lesser dvsays appear creeping seasons so behold.</p>
+                                    <p>Heaven frucvitful doesn't cover lesser dvsays appear creeping seasons so
+                                        behold.</p>
                                 </div>
                             </div>
                         </div>
@@ -25,8 +26,8 @@
                                     <p>Address :Your address goes
                                         here, your demo address.</p>
                                 </li>
-                                <li><a href="#">Phone : +8880 44338899</a></li>
-                                <li><a href="#">Email : info@colorlib.com</a></li>
+                                <li><a href="#">Phone : +880 019xxxxxxx</a></li>
+                                <li><a href="#">Email : info@jobpulse.com</a></li>
                             </ul>
                         </div>
 
@@ -56,10 +57,17 @@
                             <!-- Form -->
                             <div class="footer-form">
                                 <div id="mc_embed_signup">
-                                    <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative mail_part" novalidate="true">
-                                        <input type="email" name="EMAIL" id="newsletter-form-email" placeholder="Email Address" class="placeholder hide-on-focus" onfocus="this.placeholder = ''" onblur="this.placeholder = ' Email Address '">
+                                    <form target="_blank"
+                                          action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                                          method="get" class="subscribe_form relative mail_part" novalidate="true">
+                                        <input type="email" name="EMAIL" id="newsletter-form-email"
+                                               placeholder="Email Address" class="placeholder hide-on-focus"
+                                               onfocus="this.placeholder = ''"
+                                               onblur="this.placeholder = ' Email Address '">
                                         <div class="form-icon">
-                                            <button type="submit" name="submit" id="newsletter-submit" class="email_icon newsletter-submit button-contactForm"><img src="assets/img/icon/form.png" alt=""></button>
+                                            <button type="submit" name="submit" id="newsletter-submit"
+                                                    class="email_icon newsletter-submit button-contactForm"><img
+                                                    src="assets/img/icon/form.png" alt=""></button>
                                         </div>
                                         <div class="mt-10 info"></div>
                                     </form>
@@ -74,7 +82,7 @@
                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                     <!-- logo -->
                     <div class="footer-logo mb-20">
-                        <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                        <a href="index.html"><img src="{{asset('frontend')}}/assets/img/logo/logov2.png" alt="" style="width: 199px"></a>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
@@ -106,9 +114,13 @@
                 <div class="row d-flex justify-content-between align-items-center">
                     <div class="col-xl-10 col-lg-10 ">
                         <div class="footer-copy-right">
-                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright ©<script>document.write(new Date().getFullYear());</script>2024 All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                            <p>
+                                Copyright ©
+                                <script>document.write(new Date().getFullYear());</script>
+                                A Portfolio Project by Sabbir Hossain <a
+                                    href="" ></a>
+
+                            </p>
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-2">

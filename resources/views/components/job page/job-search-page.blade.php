@@ -1,8 +1,10 @@
 <section>
     <div class="job-listing-area pt-120 pb-120">
         <div class="container">
+            <div class="d-flex justify-content-center"><span class="text-muted" id="searchHeader">Search Result for </span></div>
             <div class="row">
                 <!-- Left content -->
+
                 <div class="col-xl-3 col-lg-3 col-md-4">
                     <div class="row">
                         <div class="col-12">
@@ -224,7 +226,7 @@
                 <div class="modal-body text-center">
                     <h3 class=" mt-3 text-warning">Apply ?</h3>
                     <p class="mb-3">This Action Cannot be undone !</p>
-                    <input class="" id="applyID"/>
+                    <input class="d-none" id="applyID"/>
                 </div>
                 <div class="modal-footer justify-content-end">
                     <div>
@@ -240,6 +242,8 @@
 
     let para = new URLSearchParams(window.location.search)
     let searchTitle = para.get('title');
+    console.log(searchTitle);
+     $('#searchHeader').append(searchTitle);
 
     (async ()=>
     {
@@ -249,15 +253,14 @@
 
     async function jobList() {
 
+
         let res = await axios.get(`job-search/${searchTitle}`)
 
         $('#jobList').empty()
         res.data['data'].slice(0, 7).forEach(function (item, i) {
             let forEach = `<div class="single-job-items mb-30">
                     <div class="job-items">
-                        <div class="company-img">
-                            <a href=""><img src="{{asset('assets')}}/img/icon/job-list1.png" alt=""></a>
-                        </div>
+
                         <div class="job-tittle">
                             <a href="/job-details?id=${item['id']}"><h4>${item['title']}</h4></a>
                             <ul>

@@ -1,6 +1,8 @@
 <section>
 <div class="job-listing-area pt-120 pb-120">
     <div class="container">
+        <div class="d-flex justify-content-center"><span class="text-muted" id="searchHeader">Browse All Jobs </span></div>
+
         <div class="row">
             <!-- Left content -->
             <div class="col-xl-3 col-lg-3 col-md-4">
@@ -225,7 +227,7 @@
                 <div class="modal-body text-center">
                     <h3 class=" mt-3 text-warning">Apply ?</h3>
                     <p class="mb-3">This Action Cannot be undone !</p>
-                    <input class="" id="applyID"/>
+                    <input class="d-none" id="applyID"/>
                 </div>
                 <div class="modal-footer justify-content-end">
                     <div>

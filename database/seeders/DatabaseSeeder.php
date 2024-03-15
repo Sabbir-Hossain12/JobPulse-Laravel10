@@ -12,15 +12,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(SkillSeeder::class);
 
-        $this->call(JobTagRelationSeeder::class);
+//        $this->call(CandidateSeeder::class);
+//      $this->call(AdminSeeder::class);
+//       $this->call(EmployerSeeder::class);
+        $this->call(CategoriesSeeder::class);
         $this->call(JobSeeder::class);
         $this->call(JobTagSeeder::class);
-        $this->call(CategoriesSeeder::class);
-        $this->call(CandidateSeeder::class);
-      $this->call(AdminSeeder::class);
-       $this->call(EmployerSeeder::class);
+        $this->call(JobTagRelationSeeder::class);
+        $this->call(SkillSeeder::class);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

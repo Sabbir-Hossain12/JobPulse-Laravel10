@@ -62,9 +62,9 @@
         res.data['data'].data.forEach(function (item, i) {
             let forEach = `<div class="single-job-items mb-30">
                     <div class="job-items">
-                        <div class="company-img">
-                            <a href=""><img src="{{asset('assets')}}/img/icon/job-list1.png" alt=""></a>
-                        </div>
+                        {{--<div class="company-img">--}}
+                        {{--    <a href=""><img src="{{asset('assets')}}/img/icon/job-list1.png" alt=""></a>--}}
+                        {{--</div>--}}
                         <div class="job-tittle">
                             <a href="/job-details?id=${item['id']}"><h4>${item['title']}</h4></a>
                             <ul>

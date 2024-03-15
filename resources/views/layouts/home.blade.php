@@ -34,7 +34,7 @@
 
 
     {{--Custom--}}
-
+    <script src="{{asset('assets/js/jquery-3.7.0.min.js')}}"></script>
     <link href="{{asset('assets/css/toastify.min.css')}}" rel="stylesheet"/>
 
 
@@ -61,7 +61,7 @@
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src=" {{asset('assets')}}/img/logo/logo.png" alt="">
+                    <img src=" {{asset('frontend')}}/assets/img/logo/logov2.png" alt="">
                 </div>
             </div>
         </div>
