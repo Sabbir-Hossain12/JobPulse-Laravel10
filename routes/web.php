@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CandidateforAdminControoler;
 use App\Http\Controllers\Admin\EmployeeAdminController;
 use App\Http\Controllers\Admin\EmployerForAdminController;
 use App\Http\Controllers\Candidate\JobforCandidateController;
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\Employer\EmployerController;
 use App\Http\Controllers\Employer\JobForEmployerController;
 use App\Http\Controllers\JobController;
@@ -51,7 +52,7 @@ Route::post('/admin/login-submit', [AdminController::class, 'store'])->name('adm
 Route::get('/employer-list', [EmployerForAdminController::class, 'employerList']);
 
 Route::middleware('admin')->group(function () {
-    Route::view('/admin/dashboard', 'admin.pages.dashboard')->name('admin.dashboard');
+    Route::view('/admin/dashboard','admin.pages.dashboard' )->name('admin.dashboard');
     Route::get('/admin/logout', [AdminController::class, 'destroy'])->name('admin.logout');
 
     Route::view('/admin/companies', 'admin.pages.company-page ')->name('admin.companies');
@@ -148,3 +149,5 @@ Route::get('/applications-candidate',[JobController::class,'jobListByApplication
 Route::post('/candidate-profile',[JobforCandidateController::class,'profileCreate']);
 
 
+//Employer
+Route::get('/employer-count',[CompanyController::class,'employerCount']);

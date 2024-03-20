@@ -23,6 +23,18 @@ class JobController extends Controller
     {
         $data = Job::with(['employer', 'category','applications'])->get();
 
+
+        foreach ($data as $single) {
+
+
+            $formattedPostedAt = Carbon::parse($single->posted_at)->format('d M Y');
+            $formattedDeadline = Carbon::parse($single->deadline)->format('d M Y');
+            // Add the formatted created_at date to the data
+            $single->formatted_posted_at = $formattedPostedAt;
+            $single->formatted_deadline = $formattedDeadline;
+
+        }
+
         return responseHelper::out('success', $data, 200);
 
     }

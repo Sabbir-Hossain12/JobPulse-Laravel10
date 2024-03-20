@@ -17,20 +17,20 @@
                                     <li class="menu-title" data-key="t-menu">Menu</li>
 
                                     <li class="">
-                                        <a href="{{url('admin/dashboard')}}" class="active" aria-expanded="false">
+                                        <a href="{{route('admin.dashboard')}}" class="{{request()->routeIs('admin.dashboard')?'active':'inactive'}}" aria-expanded="false">
                                             <i class="fas fa-home"></i>
                                             <span data-key="t-dashboard">Dashboard</span>
                                         </a>
                                     </li>
 
                                     <li class="">
-                                        <a href="{{route('admin.companies')}}" class="inactive" aria-expanded="false">
+                                        <a href="{{route('admin.companies')}}" class="{{request()->routeIs('admin.companies')?'active':'inactive'}}" aria-expanded="false">
                                             <i class="fas fa-users"></i>
                                             <span data-key="t-dashboard">Companies</span>
                                         </a>
                                     </li>
                                     <li class="">
-                                        <a href="{{route('admin.jobs')}}" class="inactive" aria-expanded="false">
+                                        <a href="{{route('admin.jobs')}}" class="{{request()->routeIs('admin.jobs')?'active':'inactive'}}" aria-expanded="false">
 
                                             <i class="fas fa-briefcase "></i>
 
@@ -38,31 +38,31 @@
                                         </a>
                                     </li>
                                     <li class="">
-                                        <a href="{{route('admin.employees')}}" class="inactive" aria-expanded="false">
+                                        <a href="{{route('admin.employees')}}" class="{{request()->routeIs('admin.employees')?'active':'inactive'}}" aria-expanded="false">
                                             <i class="fas fa-user "></i>
                                             <span data-key="t-dashboard">Employee</span>
                                         </a>
                                     </li>
                                     <li class="">
-                                        <a href="{{route('admin.candidates')}}" class="inactive" aria-expanded="false">
+                                        <a href="{{route('admin.candidates')}}" class="{{request()->routeIs('admin.candidates')?'active':'inactive'}}" aria-expanded="false">
                                             <i class="fas fa-user-circle "></i>
                                             <span data-key="t-dashboard">Candidates</span>
                                         </a>
                                     </li>
                                     <li class="">
-                                        <a href="{{route('admin.blogs')}}" class="inactive" aria-expanded="false">
+                                        <a href="{{route('admin.blogs')}}" class="{{request()->routeIs('admin.blogs')?'active':'inactive'}}" aria-expanded="false">
                                             <i class="fas fa-blog"></i>
-                                            <span data-key="t-dashboard">Blogs</span>
+                                            <span data-key="t-dasadmin.blogshboard">Blogs</span>
                                         </a>
                                     </li>
                                     <li class="">
-                                        <a href="{{route('admin.pages')}}" class="inactive" aria-expanded="false">
+                                        <a href="{{route('admin.pages')}}" class="{{request()->routeIs('admin.pages')?'active':'inactive'}}" aria-expanded="false">
                                             <i class="fas fa-file "></i>
                                             <span data-key="t-dashboard">Pages</span>
                                         </a>
                                     </li>
                                     <li class="">
-                                        <a href="{{route('admin.plugins')}}" class="inactive" aria-expanded="false">
+                                        <a href="{{route('admin.plugins')}}" class="{{request()->routeIs('admin.plugins')?'active':'inactive'}}" aria-expanded="false">
                                             <i class="fas fa-plug "></i>
                                             <span data-key="t-dashboard">Plugins</span>
                                         </a>

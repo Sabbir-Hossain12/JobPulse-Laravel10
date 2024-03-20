@@ -5,21 +5,23 @@
             <div class="navbar-brand-box">
                 <a href="{{url('/')}}" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src=" {{asset('assets')}}/images/logo-sm.svg" alt="" height="24">
+                                    <img src=" {{asset('frontend')}}/assets/img/logo/logov2_img.png" alt="" height="24">
                                 </span>
                     <span class="logo-lg">
-                                    <img src=" {{asset('assets')}}/images/logo-sm.svg" alt="" height="24"> <span
-                            class="logo-txt">JobPulse</span>
+                                    <img src=" {{asset('frontend')}}/assets/img/logo/logov2_img.png" alt="" height="24"> <span
+                                class="logo-txt">JobPulse</span>
                                 </span>
                 </a>
 
                 <a href="" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src=" {{asset('assets')}}/images/logo-sm.svg" alt="" height="24">
+                                    <img src=" {{asset('frontend')}}/assets/img/logo/logov2_img.png" alt="logo-light"
+                                         height="24">
                                 </span>
                     <span class="logo-lg">
-                                    <img src=" {{asset('assets')}}/images/logo-sm.svg" alt="" height="24"> <span
-                            class="logo-txt">JobPulse</span>
+                                    <img src=" {{asset('frontend')}}/assets/img/logo/logov2_img.png" alt="logo-dark"
+                                         height="24"> <span
+                                class="logo-txt">JobPulse</span>
                                 </span>
                 </a>
             </div>
@@ -35,10 +37,21 @@
             {{--                    <button class="btn btn-primary" type="button"><i class="bx bx-search-alt align-middle"></i></button>--}}
             {{--                </div>--}}
             {{--            </form>--}}
-            <div class="d-flex justify-content-center align-items-center">
-                <span class="font-size-24 fw-bold">Admin Dashboard</span>
-            </div>
+            {{--            <div class="d-flex justify-content-center align-items-center">--}}
+            {{--                <span class="font-size-24 fw-bold">Admin Dashboard</span>--}}
+            {{--            </div>--}}
+
         </div>
+        {!! request()->routeIs('admin.dashboard') ? '<div class="d-flex justify-content-center align-items-center"><i class="fas fa-user-alt"> </i> <span class="px-2 logo-txt ">Admin Dashboard</span></div>' : '' !!}
+        {!!   request()->routeIs('admin.jobs') ? '<div class="d-flex justify-content-center align-items-center"><i class="fas fa-user-alt"> </i> <span class="px-2 logo-txt ">Job List</span></div>' : '' !!}
+        {!! request()->routeIs('admin.profile') ? '<div class="d-flex justify-content-center align-items-center"><i class="fas fa-user-alt"> </i> <span class="px-2 logo-txt ">Admin Profile</span></div>' : '' !!}
+        {!! request()->routeIs('admin.companies') ? '<div class="d-flex justify-content-center align-items-center"><i class="fas fa-user-alt"> </i> <span class="px-2 logo-txt ">Company List</span></div>' : '' !!}
+        {!!   request()->routeIs('admin.employees') ? '<div class="d-flex justify-content-center align-items-center"><i class="fas fa-user-alt"> </i> <span class="px-2 logo-txt ">Employees List</span></div>' : '' !!}
+        {!! request()->routeIs('admin.candidates') ? '<div class="d-flex justify-content-center align-items-center"><i class="fas fa-user-alt"> </i> <span class="px-2 logo-txt ">Candidate List</span></div>' : '' !!}
+        {!! request()->routeIs('admin.blogs') ? '<div class="d-flex justify-content-center align-items-center"><i class="fas fa-user-alt"> </i> <span class="px-2 logo-txt ">Blogs</span></div>' : '' !!}
+        {!!   request()->routeIs('admin.pages') ? '<div class="d-flex justify-content-center align-items-center"><i class="fas fa-user-alt"> </i> <span class="px-2 logo-txt ">Pages</span></div>' : '' !!}
+        {!! request()->routeIs('admin.plugins') ? '<div class="d-flex justify-content-center align-items-center"><i class="fas fa-user-alt"> </i> <span class="px-2 logo-txt ">Plugins</span></div>' : '' !!}
+
 
         <div class="d-flex">
 
@@ -91,7 +104,6 @@
                     </svg>
                 </button>
             </div>
-
 
 
             <div class="dropdown d-inline-block">
@@ -221,7 +233,6 @@
             </div>
 
 
-
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item bg-soft-light border-start border-end"
                         id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
@@ -234,7 +245,7 @@
                 <div class="dropdown-menu dropdown-menu-end">
                     <!-- item-->
                     <a class="dropdown-item" href="{{route('profile.edit')}}"><i
-                            class="mdi mdi-face-man-profile font-size-16 align-middle me-1"></i> Profile</a>
+                                class="mdi mdi-face-man-profile font-size-16 align-middle me-1"></i> Profile</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{url('/admin/logout')}}"><i
                             class="mdi mdi-logout font-size-16 align-middle me-1"></i> Logout</a>

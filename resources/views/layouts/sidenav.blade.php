@@ -9,7 +9,7 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description"/>
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}} ">
+    <link rel="shortcut icon" href=" {{asset('frontend')}}/assets/img/logo/logov2_img.png ">
 
     <!-- preloader css -->
     {{--    <link rel="stylesheet" href="assets/css/preloader.min.css" type="text/css"/>--}}
