@@ -4,14 +4,14 @@
         <div class="headder-top header-sticky">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-3 col-md-2">
+                    <div class="col-lg-3 col-md-2 col-3 col-sm-3">
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="{{url('/')}}"><img src=" {{asset('frontend')}}/assets/img/logo/logov2.png"
+                            <a href="{{url('/')}}"><img class="img-fluid w-sm-75" src=" {{asset('frontend')}}/assets/img/logo/logov2.png"
                                                         alt="" style="width: 199px"></a>
                         </div>
                     </div>
-                    <div class="col-lg-9 col-md-9">
+                    <div class="col-lg-9 col-md-9 col-8 col-sm-9 d-flex align-items-center">
                         <div class="menu-wrapper">
                             <!-- Main-menu -->
                             <div class="main-menu">
@@ -29,15 +29,11 @@
                                 </nav>
 
                             </div>
-                            {{--
-                                                        <!-- Header-btn -->
-                                                        {{--                            <div class="header-btn d-none f-right d-lg-block">--}}
-                            {{--                                <a href="#" class="btn head-btn1">Register</a>--}}
-                            {{--                                <a href="#" class="btn head-btn2">Login</a>--}}
-                            {{--                            </div>--}}
+
                             @if(!Auth::user() && !Auth::guard('admin')->user() && !Auth::guard('employer')->user())
+                        <div class="d-flex">
                                 <div class="dropdown">
-                                    <button class="btn head-btn1 dropdown-toggle" type="button" data-toggle="dropdown"
+                                    <button class="genric-btn primary head-btn1 dropdown-toggle" type="button" data-toggle="dropdown"
                                             aria-expanded="false">
                                         Login
                                     </button>
@@ -49,7 +45,7 @@
                                 </div>
 
                                 <div class="dropdown">
-                                    <button class="btn head-btn2 btn-sm dropdown-toggle" type="button"
+                                    <button class=" m-lg-0 genric-btn primary-border radius head-btn2 btn-sm dropdown-toggle" type="button"
                                             data-toggle="dropdown" aria-expanded="false">
                                         Registration
                                     </button>
@@ -60,10 +56,10 @@
                                     </div>
                                 </div>
                             @endif
-
+                        </div>
                             @auth('web')
                                 <div class="dropdown">
-                                    <button class="btn head-btn2 btn-sm dropdown-toggle" type="button"
+                                    <button class="genric-btn primary-border head-btn2 btn-sm dropdown-toggle" type="button"
                                             data-toggle="dropdown" aria-expanded="false">
                                         Hi,{{Auth::user()->name }}
                                     </button>
@@ -78,7 +74,7 @@
 
                             @auth('admin')
                                 <div class="dropdown">
-                                    <button class="btn head-btn2 btn-sm dropdown-toggle" type="button"
+                                    <button class="genric-btn primary-border head-btn2 btn-sm dropdown-toggle" type="button"
                                             data-toggle="dropdown" aria-expanded="false">
                                         Hi,{{Auth::guard('admin')->user()->name  }}
                                     </button>
@@ -93,7 +89,7 @@
 
                             @auth('employer')
                                 <div class="dropdown">
-                                    <button class="btn head-btn2 btn-sm dropdown-toggle" type="button"
+                                    <button class="genric-btn primary-border head-btn2 btn-sm dropdown-toggle" type="button"
                                             data-toggle="dropdown" aria-expanded="false">
                                         Hi,{{Auth::guard('employer')->user()->name  }}
                                     </button>

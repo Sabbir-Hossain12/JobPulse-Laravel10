@@ -1,9 +1,9 @@
 <!-- slider Area Start-->
-<div class="slider-area ">
+<div class="slider-area " style="background-image: url(https://images.pexels.com/photos/3756678/pexels-photo-3756678.jpeg); background-size: cover; background-position: center; background-repeat: no-repeat ">
     <!-- Mobile Menu -->
-    <div class="slider-active">
+    <div class="slider-active" >
         <div class="single-slider slider-height d-flex align-items-center"
-             data-background="https://images.pexels.com/photos/3756678/pexels-photo-3756678.jpeg">
+             data-background="" >
             <div class="container">
                 <div class="row">
                     <div class="col-xl-6 col-lg-9 col-md-10">

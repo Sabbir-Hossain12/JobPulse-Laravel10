@@ -5,20 +5,20 @@
             <div class="navbar-brand-box">
                 <a href="{{url('/')}}" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src=" {{asset('assets')}}/images/logo-sm.svg" alt="" height="24">
+                                    <img src=" {{asset('frontend')}}/assets/img/logo/logov2_img.png" alt="" height="24">
                                 </span>
                     <span class="logo-lg">
-                                    <img src=" {{asset('assets')}}/images/logo-sm.svg" alt="" height="24"> <span
+                                    <img src=" {{asset('frontend')}}/assets/img/logo/logov2_img.png" alt="" height="24"> <span
                             class="logo-txt">JobPulse</span>
                                 </span>
                 </a>
 
                 <a href="" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src=" {{asset('assets')}}/images/logo-sm.svg" alt="" height="24">
+                                    <img src=" {{asset('frontend')}}/assets/img/logo/logov2_img.png" alt="" height="24">
                                 </span>
                     <span class="logo-lg">
-                                    <img src=" {{asset('assets')}}/images/logo-sm.svg" alt="" height="24"> <span
+                                    <img src=" {{asset('frontend')}}/assets/img/logo/logov2_img.png" alt="" height="24"> <span
                             class="logo-txt">JobPulse</span>
                                 </span>
                 </a>

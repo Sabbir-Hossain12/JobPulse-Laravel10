@@ -46,9 +46,10 @@
                 response.data['data'].forEach(function (item, i) {
                     let foreach = `  <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                 <div class="single-services text-center mb-30">
-<!--                    <div class="services-ion">-->
+                    <div class="services-ion p-3">
 <!--                        <span class="flaticon-tour"></span>-->
-<!--                    </div>-->
+                        <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-25 h-25" alt="">
+                    </div>
                     <div class="services-cap">
                         <h5><a href="/job-by-company?id=${item['id']}">${item['name']}</a></h5>
                         <span>(${item['jobs'].length})</span>

@@ -62,7 +62,7 @@ Route::middleware('admin')->group(function () {
     Route::view('/admin/pages', 'admin.pages.pages-page')->name('admin.pages');
     Route::view('/admin/plugins', 'admin.pages.dashboard')->name('admin.plugins');
     Route::view('/admin/blogs', 'admin.pages.dashboard')->name('admin.blogs');
-
+    Route::view('/admin/profile', 'admin.pages.profile-page')->name('admin.profile');
 //Employer Page
 
     Route::get('/employer-remove/{id}', [EmployerForAdminController::class, 'employerRemoveByid']);

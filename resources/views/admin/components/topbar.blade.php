@@ -244,7 +244,7 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
                     <!-- item-->
-                    <a class="dropdown-item" href="{{route('profile.edit')}}"><i
+                    <a class="dropdown-item" href="{{route('admin.profile')}}"><i
                                 class="mdi mdi-face-man-profile font-size-16 align-middle me-1"></i> Profile</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{url('/admin/logout')}}"><i
