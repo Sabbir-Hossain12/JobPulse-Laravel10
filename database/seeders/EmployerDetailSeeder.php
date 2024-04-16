@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Employer;
 use App\Models\EmployerDetail;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,10 +14,11 @@ class EmployerDetailSeeder extends Seeder
      */
     public function run(): void
     {
+        $id=Employer::get();
         $data=[
 
             [
-                'employer_id'=>17,
+                'employer_id'=>rand($id[0]->id,$id[9]->id),
                 'employer_details'=>'good company',
                 'location'=>'Dhaka,Bashundhara',
                 'website_url'=>'www.samsung',
@@ -24,87 +26,87 @@ class EmployerDetailSeeder extends Seeder
                 'company_size'=>'Small',
 
             ],
-            [
-                'employer_id'=>18,
-                'employer_details'=>'good company',
-                'location'=>'Dhaka,Bashundhara',
-                'website_url'=>'www.samsung',
-                'employer_type'=>'Government',
-                'company_size'=>'Small',
-
-            ],
-            [
-                'employer_id'=>19,
-                'employer_details'=>'good company',
-                'location'=>'Dhaka,Bashundhara',
-                'website_url'=>'www.samsung',
-                'employer_type'=>'Government',
-                'company_size'=>'Small',
-
-            ],
-            [
-                'employer_id'=>20,
-                'employer_details'=>'good company',
-                'location'=>'Dhaka,Bashundhara',
-                'website_url'=>'www.samsung',
-                'employer_type'=>'Government',
-                'company_size'=>'Small',
-
-            ],
-            [
-                'employer_id'=>21,
-                'employer_details'=>'good company',
-                'location'=>'Dhaka,Bashundhara',
-                'website_url'=>'www.samsung',
-                'employer_type'=>'Government',
-                'company_size'=>'Small',
-
-            ],
-            [
-                'employer_id'=>22,
-                'employer_details'=>'good company',
-                'location'=>'Dhaka,Bashundhara',
-                'website_url'=>'www.samsung',
-                'employer_type'=>'Government',
-                'company_size'=>'Small',
-
-            ],
-            [
-                'employer_id'=>23,
-                'employer_details'=>'good company',
-                'location'=>'Dhaka,Bashundhara',
-                'website_url'=>'www.samsung',
-                'employer_type'=>'Government',
-                'company_size'=>'Small',
-
-            ],
-            [
-                'employer_id'=>24,
-                'employer_details'=>'good company',
-                'location'=>'Dhaka,Bashundhara',
-                'website_url'=>'www.samsung',
-                'employer_type'=>'Government',
-                'company_size'=>'Small',
-
-            ],
-            [
-                'employer_id'=>25,
-                'employer_details'=>'good company',
-                'location'=>'Dhaka,Bashundhara',
-                'website_url'=>'www.samsung',
-                'employer_type'=>'Government',
-                'company_size'=>'Small',
-
-            ],
-            [
-                'employer_id'=>26,
-                'employer_details'=>'good company',
-                'location'=>'Dhaka,Bashundhara',
-                'website_url'=>'www.samsung',
-                'employer_type'=>'Government',
-                'company_size'=>'Small',
-
-            ],
+//            [
+//                'employer_id'=>Employer::random()->id,
+//                'employer_details'=>'good company',
+//                'location'=>'Dhaka,Bashundhara',
+//                'website_url'=>'www.samsung',
+//                'employer_type'=>'Government',
+//                'company_size'=>'Small',
+//
+//            ],
+//            [
+//                'employer_id'=>Employer::random()->id,
+//                'employer_details'=>'good company',
+//                'location'=>'Dhaka,Bashundhara',
+//                'website_url'=>'www.samsung',
+//                'employer_type'=>'Government',
+//                'company_size'=>'Small',
+//
+//            ],
+//            [
+//                'employer_id'=>Employer::random()->id,
+//                'employer_details'=>'good company',
+//                'location'=>'Dhaka,Bashundhara',
+//                'website_url'=>'www.samsung',
+//                'employer_type'=>'Government',
+//                'company_size'=>'Small',
+//
+//            ],
+//            [
+//                'employer_id'=>Employer::random()->id,
+//                'employer_details'=>'good company',
+//                'location'=>'Dhaka,Bashundhara',
+//                'website_url'=>'www.samsung',
+//                'employer_type'=>'Government',
+//                'company_size'=>'Small',
+//
+//            ],
+//            [
+//                'employer_id'=>Employer::random()->id,
+//                'employer_details'=>'good company',
+//                'location'=>'Dhaka,Bashundhara',
+//                'website_url'=>'www.samsung',
+//                'employer_type'=>'Government',
+//                'company_size'=>'Small',
+//
+//            ],
+//            [
+//                'employer_id'=>Employer::random()->id,
+//                'employer_details'=>'good company',
+//                'location'=>'Dhaka,Bashundhara',
+//                'website_url'=>'www.samsung',
+//                'employer_type'=>'Government',
+//                'company_size'=>'Small',
+//
+//            ],
+//            [
+//                'employer_id'=>Employer::random()->id,
+//                'employer_details'=>'good company',
+//                'location'=>'Dhaka,Bashundhara',
+//                'website_url'=>'www.samsung',
+//                'employer_type'=>'Government',
+//                'company_size'=>'Small',
+//
+//            ],
+//            [
+//                'employer_id'=>Employer::random()->id,
+//                'employer_details'=>'good company',
+//                'location'=>'Dhaka,Bashundhara',
+//                'website_url'=>'www.samsung',
+//                'employer_type'=>'Government',
+//                'company_size'=>'Small',
+//
+//            ],
+//            [
+//                'employer_id'=>Employer::random()->id,
+//                'employer_details'=>'good company',
+//                'location'=>'Dhaka,Bashundhara',
+//                'website_url'=>'www.samsung',
+//                'employer_type'=>'Government',
+//                'company_size'=>'Small',
+//
+//            ],
 
 
 

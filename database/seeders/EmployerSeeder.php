@@ -14,14 +14,7 @@ class EmployerSeeder extends Seeder
      */
     public function run(): void
     {
-//        $obj= new Employer();
-//        $obj->name= "Employer";
-//        $obj->email="employer@gmail.com";
-//        $obj->password= Hash::make('1234');
-//
-//
-//
-//        $obj->save();
+
 
         $data=[
             [

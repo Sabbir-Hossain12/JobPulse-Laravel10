@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Employer;
 use App\Models\Job;
 use App\Models\JobCategory;
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -24,9 +25,9 @@ class JobSeeder extends Seeder
             'description'=>fake()->paragraph(),
             'responsibilities'=>fake()->paragraph(),
             'requirement'=>fake()->paragraph(),
-            'location'=>fake()->address(),
+            'location'=>'Dhaka,Bashundhara',
             'salary_range'=>'1500tk-20000tk',
-            'deadline'=>fake()->date(),
+            'deadline'=>Carbon::tomorrow(),
             'employer_id'=>$employer->id,
             'category_id'=>$category->id
         ]);
