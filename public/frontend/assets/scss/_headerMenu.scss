@@ -53,7 +53,7 @@
             }
             & ul.submenu{
                 position: absolute;
-                width: 170px;
+                width: 10px;
                 background: #fff;
                 left: 0;
                 top: 120%;
@@ -76,19 +76,19 @@
                             color:$theme-color;
                         }
                     }
-                } 
+                }
             }
         }
     }
     // logo
     .logo{
         & img{
-            
+
         }
     }
 }
 
-   
+
 
 // Mobile Menu
 .header-area ul > li:hover > ul.submenu {
@@ -102,7 +102,7 @@
 }
 .header-sticky.sticky-bar.sticky .main-menu ul>li>a {
     padding: 26px 20px;
-  
+
     @media #{$lg}{
         padding: 30px 13px;
     }

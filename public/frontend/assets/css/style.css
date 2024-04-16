@@ -5547,7 +5547,7 @@ b, sup, sub, u, del {
 }
 
 .header-area .main-menu ul li:hover > a {
-    color: #fb246a
+    color: #1f2b7b
 }
 
 .header-area .main-menu ul ul.submenu {
@@ -5558,7 +5558,7 @@ b, sup, sub, u, del {
     top: 120%;
     visibility: hidden;
     opacity: 0;
-    border-top: 5px solid #fb246a;
+    border-top: 5px solid #1f2b7b;
     box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.05);
     padding: 17px 0;
     -webkit-transition: .3s;
@@ -5581,7 +5581,7 @@ b, sup, sub, u, del {
 }
 
 .header-area .main-menu ul ul.submenu > li > a:hover {
-    color: #fb246a
+    color: #1f2b7b
 }
 
 .header-area ul > li:hover > ul.submenu {
@@ -5627,7 +5627,7 @@ b, sup, sub, u, del {
 }
 
 .slicknav_menu .slicknav_icon-bar {
-    background-color: #fb246a !important
+    background-color: #1f2b7b !important
 }
 
 .header-sticky.sticky-bar.sticky .header-btn .get-btn {
@@ -5640,7 +5640,7 @@ b, sup, sub, u, del {
 
 .slicknav_menu .slicknav_nav a:hover {
     background: transparent;
-    color: #fb246a
+    color: #1f2b7b
 }
 
 .slicknav_menu {
@@ -7496,4 +7496,15 @@ form.search-box .search-form a {
     outline: 0;
     background: #242b5e;
     color: #fff
+}
+
+.dropdown-item:hover, .dropdown-item:focus
+{
+    background-color: #1f2b7b;
+    color: #fff !important;
+}
+
+li
+{
+    margin-left: 0px !important;
 }
