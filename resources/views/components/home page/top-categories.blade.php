@@ -1,5 +1,5 @@
 <!-- Our Services Start -->
-<div class="our-services section-pad-t30">
+<div class="our-services section-pad-t30 pt-0">
     <div class="container">
         <!-- Section Tittle -->
         <div class="row">

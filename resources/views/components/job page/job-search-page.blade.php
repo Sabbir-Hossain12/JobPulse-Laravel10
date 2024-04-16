@@ -271,7 +271,7 @@
                         </div>
                     </div>
                     <div class="items-link f-right">
-                        <button data-id=${item['id']}  class="btn btn-sm apply" >Apply Now</button>
+                        <button data-id=${item['id']}  class="genric-btn primary" >Apply Now</button>
                         <span class="pt-2">Deadline: ${item[['deadline']]}</span>
                     </div>
                 </div>`

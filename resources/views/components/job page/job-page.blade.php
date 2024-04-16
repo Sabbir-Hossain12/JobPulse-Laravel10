@@ -231,8 +231,8 @@
                 </div>
                 <div class="modal-footer justify-content-end">
                     <div>
-                        <button type="button" id="delete-modal-close" class="btn  mx-2" data-dismiss="modal">Cancel</button>
-                        <button onclick="jobApply()" type="button" id="confirmDelete" class="btn btn-outline-success mx-2" >Apply</button>
+                        <button type="button" id="delete-modal-close" class="genric-btn warning mx-2" data-dismiss="modal">Cancel</button>
+                        <button onclick="jobApply()" type="button" id="confirmDelete" class="genric-btn primary mx-2" >Apply</button>
                     </div>
                 </div>
             </div>
@@ -272,7 +272,7 @@
                         </div>
                     </div>
                     <div class="items-link f-right">
-                        <button data-id=${item['id']}  class="btn btn-sm apply" >Apply Now</button>
+                        <button data-id=${item['id']}  class="genric-btn primary apply" >Apply Now</button>
                         <span class="pt-2">Deadline: ${item[['deadline']]}</span>
                     </div>
                 </div>`

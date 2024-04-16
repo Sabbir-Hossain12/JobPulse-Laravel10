@@ -86,7 +86,7 @@
                             <li>Deadline : <span id="deadline">12 Sep 2020</span></li>
                         </ul>
                         <div class="apply-btn2">
-                            <button  class="btn" id="apply">Apply Now</button>
+                            <button  class="genric-btn primary" id="apply">Apply Now</button>
                         </div>
                     </div>
                     <div class="post-details4  mb-50">
@@ -117,12 +117,12 @@
                 <div class="modal-body text-center">
                     <h3 class=" mt-3 text-warning">Apply ?</h3>
                     <p class="mb-3">This Action Cannot be undone !</p>
-                    <input class="" id="applyID"/>
+                    <input class="d-none" id="applyID"/>
                 </div>
                 <div class="modal-footer justify-content-end">
                     <div>
-                        <button type="button" id="delete-modal-close" class="btn  mx-2" data-dismiss="modal">Cancel</button>
-                        <button onclick="jobApply()" type="button" id="confirmDelete" class="btn btn-outline-success mx-2" >Apply</button>
+                        <button type="button" id="delete-modal-close" class="genric-btn warning  mx-2" data-dismiss="modal">Cancel</button>
+                        <button onclick="jobApply()" type="button" id="confirmDelete" class="genric-btn primary mx-2" >Apply</button>
                     </div>
                 </div>
             </div>

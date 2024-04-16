@@ -224,12 +224,12 @@
                 <div class="modal-body text-center">
                     <h3 class=" mt-3 text-warning">Apply ?</h3>
                     <p class="mb-3">This Action Cannot be undone !</p>
-                    <input class="" id="applyID"/>
+                    <input class="d-none" id="applyID"/>
                 </div>
                 <div class="modal-footer justify-content-end">
                     <div>
-                        <button type="button" id="delete-modal-close" class="btn  mx-2" data-dismiss="modal">Cancel</button>
-                        <button onclick="jobApply()" type="button" id="confirmDelete" class="btn btn-outline-success mx-2" >Apply</button>
+                        <button type="button" id="delete-modal-close" class="genric-btn warning" data-dismiss="modal">Cancel</button>
+                        <button onclick="jobApply()" type="button" id="confirmDelete" class="genric-btn primary mx-2" >Apply</button>
                     </div>
                 </div>
             </div>
@@ -268,7 +268,7 @@
                         </div>
                     </div>
                     <div class="items-link f-right">
-                        <button data-id=${item['id']}  class="btn btn-sm apply" >Apply Now</button>
+                        <button data-id=${item['id']}  class="genric-btn primary apply" >Apply Now</button>
                         <span class="pt-2">Deadline: ${item[['deadline']]}</span>
                     </div>
                 </div>`
