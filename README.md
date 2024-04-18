@@ -14,7 +14,7 @@
 
 
 <hr>
-<a href="www.jobpulse.dev-sabbir.com">Live Website</a>
+<a href="https://jobpulse.dev-sabbir.com">Live Website</a>
 
 <a href="https://drive.google.com/file/d/1uxqyD_eLux6rHKvKKzilDdhgCybBNY8O/view?usp=drive_link">Demo Video</a>
 <hr>
