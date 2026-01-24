@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Employer;
 
 use App\helper\responseHelper;
 use App\Http\Controllers\Controller;
+use App\Models\Application;
 use App\Models\Job;
 use App\Models\JobCategory;
 use App\Models\JobTag;
@@ -15,7 +16,9 @@ class JobForEmployerController extends Controller
 {
     function jobList()
     {
-        $data = Job::with(['employer', 'category','applications'])->get();
+        $data = Job::where('employer_id', Auth::guard('employer')->id())
+                   ->with(['employer:id,name', 'category', 'applications'])
+                   ->get();
 
         return responseHelper::out('success', $data, 200);
 
@@ -81,6 +84,57 @@ class JobForEmployerController extends Controller
     function JobCountByCategory(Request $request)
     {
         Job::where('category_id',$request->input('cat_id'))->count();
+    }
+
+    function jobApplications(Request $request)
+    {
+        try {
+            $job = Job::where('id', $request->id)
+                      ->where('employer_id', Auth::guard('employer')->id())
+                      ->with(['applications' => function($query) {
+                          $query->with(['candidate:id,name,email']);
+                      }])
+                      ->first();
+
+            if (!$job) {
+                return responseHelper::out('Job not found or unauthorized', null, 404);
+            }
+
+            // Format the application dates
+            foreach ($job->applications as $application) {
+                $formattedCreatedAt = \Carbon\Carbon::parse($application->created_at)->format('d M Y');
+                $application->formatted_applied_at = $formattedCreatedAt;
+            }
+
+            return responseHelper::out('success', $job->applications, 200);
+        } catch (\Exception $e) {
+            \Log::error('Job Applications Error: ' . $e->getMessage());
+            return responseHelper::out('error', [], 500);
+        }
+    }
+
+    function employerApplications()
+    {
+        try {
+            $employerId = Auth::guard('employer')->id();
+
+            $applications = Application::whereHas('job', function($query) use ($employerId) {
+                $query->where('employer_id', $employerId);
+            })
+            ->with(['job:id,title', 'candidate:id,name,email'])
+            ->get();
+
+            // Format the application dates
+            foreach ($applications as $application) {
+                $formattedCreatedAt = \Carbon\Carbon::parse($application->created_at)->format('d M Y');
+                $application->formatted_applied_at = $formattedCreatedAt;
+            }
+
+            return responseHelper::out('success', $applications, 200);
+        } catch (\Exception $e) {
+            \Log::error('Employer Applications Error: ' . $e->getMessage());
+            return responseHelper::out('error', [], 500);
+        }
     }
 
 

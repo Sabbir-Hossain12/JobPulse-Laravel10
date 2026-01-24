@@ -31,7 +31,7 @@ class AdminSeeder extends Seeder
         $obj->name="Admin";
         $obj->email="admin@admin.com";
         $obj->status='1';
-        $obj->password=Hash::make('1234');
+        $obj->password='password';
         $obj->role_id= $superadminRole->id;
         $obj->save();
 
@@ -39,7 +39,7 @@ class AdminSeeder extends Seeder
         $obj->name="editor";
         $obj->email="editor@admin.com";
         $obj->status='0';
-        $obj->password=Hash::make('1234');
+        $obj->password='password';
         $obj->role_id= $editorRole->id;
         $obj->save();
 
@@ -47,7 +47,7 @@ class AdminSeeder extends Seeder
         $obj->name="manager";
         $obj->email="manager@admin.com";
         $obj->status='0';
-        $obj->password=Hash::make('1234');
+        $obj->password='password';
         $obj->role_id= $managerRole->id;
         $obj->save();
 

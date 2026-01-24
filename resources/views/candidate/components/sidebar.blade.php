@@ -26,15 +26,19 @@
                                     <li class="">
                                         <a href="{{route('candidate.jobs')}}" class="{{ request()->routeIs('candidate.jobs') ? 'active' : 'inactive' }}" aria-expanded="false">
                                             <i class="fas fa-briefcase"> </i>
-                                            <span data-key="t-dashboard">Jobs</span>
+                                            <span data-key="t-dashboard">My Applications</span>
                                         </a>
                                     </li>
                                     <li class="">
                                         <a href="{{route('candidate.profile')}}" class="{{ request()->routeIs('candidate.profile') ? 'active' : 'inactive' }}" aria-expanded="false">
-
-                                            <i class="fas fa-users"></i>
-
+                                            <i class="fas fa-user"></i>
                                             <span data-key="t-dashboard">Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a href="{{ url('/jobs-page') }}" class="{{ request()->routeIs('jobs-page') ? 'active' : 'inactive' }}" aria-expanded="false">
+                                            <i class="fas fa-search"></i>
+                                            <span data-key="t-dashboard">Find Jobs</span>
                                         </a>
                                     </li>
 

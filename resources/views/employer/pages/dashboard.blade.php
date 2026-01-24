@@ -35,46 +35,71 @@
         <div class="col-lg-2 ">
 
             <div class="card w-100">
-
-                <div class="card-body">
-                    <h5 class="card-title">
-                        Job Posted
-                    </h5>
-                    <p class="card-text">6</p>
-                </div>
-
+                <a href="{{ route('employer.jobs') }}" class="text-decoration-none">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Job Posted
+                        </h5>
+                        <p class="card-text" id="jobPostedCount">0</p>
+                    </div>
+                </a>
             </div>
 
         </div>
         <div class="col-lg-2 ">
 
             <div class="card w-100">
-
                 <div class="card-body">
                     <h5 class="card-title">
                         Employee
                     </h5>
                     <p class="card-text">N/A</p>
                 </div>
-
             </div>
 
         </div>
         <div class="col-lg-2 ">
 
             <div class="card w-100">
-
-                <div class="card-body">
-                    <h5 class="card-title">
-                        Application
-                    </h5>
-                    <p class="card-text">5</p>
-                </div>
-
+                <a href="{{ route('employer.applications') }}" class="text-decoration-none">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Application
+                        </h5>
+                        <p class="card-text" id="applicationCount">0</p>
+                    </div>
+                </a>
             </div>
 
         </div>
 
     </div>
+
+    <script>
+        // Load dashboard statistics
+        (async () => {
+            await loadDashboardStats();
+        })();
+
+        async function loadDashboardStats() {
+            try {
+                // Get job count
+                const jobResponse = await axios.get('/employer/job-list');
+                if(jobResponse.data.message === 'success') {
+                    const jobCount = Array.isArray(jobResponse.data.data) ? jobResponse.data.data.length : 0;
+                    document.getElementById('jobPostedCount').textContent = jobCount;
+                }
+
+                // Get application count
+                const appResponse = await axios.get('/employer/applications-data');
+                if(appResponse.data.message === 'success') {
+                    const appCount = Array.isArray(appResponse.data.data) ? appResponse.data.data.length : 0;
+                    document.getElementById('applicationCount').textContent = appCount;
+                }
+            } catch (error) {
+                console.error('Error loading dashboard stats:', error);
+            }
+        }
+    </script>
 
 @endsection
