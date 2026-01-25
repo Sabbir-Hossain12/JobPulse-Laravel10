@@ -30,6 +30,12 @@
                                         </a>
                                     </li>
                                     <li class="">
+                                        <a href="{{route('employer.applications')}}" class="{{ request()->routeIs('employer.applications') ? 'active' : 'inactive' }}" aria-expanded="false">
+                                            <i class="fas fa-file-alt"> </i>
+                                            <span data-key="t-dashboard">Applications</span>
+                                        </a>
+                                    </li>
+                                    <li class="">
                                         <a href="{{route('employer.employee')}}" class="{{ request()->routeIs('employer.employee') ? 'active' : 'inactive' }}" aria-expanded="false">
 
                                             <i class="fas fa-users"></i>

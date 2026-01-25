@@ -14,7 +14,7 @@ protected $fillable=['job_id','candidate_id'];
 
     function candidate():BelongsTo
     {
-        return  $this->belongsTo(User::class,'candidate_id','id');
+        return  $this->belongsTo(\App\Models\User::class,'candidate_id','id');
     }
     function job():BelongsTo
     {

@@ -13,10 +13,36 @@ class CategoriesSeeder extends Seeder
      */
     public function run(): void
     {
-       JobCategory::create(['name'=>'Software Development']);
-        JobCategory::create(['name'=>'Web Development']);
-        JobCategory::create(['name'=>'Mobile App Development']);
-        JobCategory::create(['name'=>'UI/UX Design']);
-        JobCategory::create(['name'=>'Data Science']);
+        $categories = [
+            'Oil and Gas',
+            'Banking and Finance',
+            'Telecommunications',
+            'Agriculture',
+            'Manufacturing',
+            'Healthcare',
+            'Education',
+            'Information Technology',
+            'Construction',
+            'Mining',
+            'Power and Energy',
+            'Transportation',
+            'Logistics',
+            'Media and Entertainment',
+            'Real Estate',
+            'Legal Services',
+            'Government',
+            'NGO/Development',
+            'Textile and Garment',
+            'Automotive',
+            'Pharmaceuticals',
+            'Insurance',
+            'Hospitality and Tourism',
+            'Retail',
+            'FMCG (Fast Moving Consumer Goods)'
+        ];
+
+        foreach ($categories as $category) {
+            JobCategory::create(['name' => $category]);
+        }
     }
 }

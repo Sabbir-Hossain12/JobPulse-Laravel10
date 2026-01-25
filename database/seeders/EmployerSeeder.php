@@ -14,84 +14,86 @@ class EmployerSeeder extends Seeder
      */
     public function run(): void
     {
-
-
-        $data=[
+        $data = [
             [
-                'name'=>'Samsung',
-                'email'=>'samsung@gmail.com',
-                'password'=>Hash::make('123123'),
-
+                'name' => 'Nigeria National Petroleum Corporation (NNPC)',
+                'email' => 'hr@nnpc.ng',
+                'password' => 'password',
             ],
             [
-                'name'=>'LG',
-                'email'=>'lg@gmail.com',
-                'password'=>Hash::make('123123'),
-
+                'name' => 'Dangote Group',
+                'email' => 'careers@dangote.com',
+                'password' => 'password',
             ],
             [
-                'name'=>'Toshiba',
-                'email'=>'toshiba@gmail.com',
-                'password'=>Hash::make('123123'),
-
+                'name' => 'Aliko Dangote Cement Plc',
+                'email' => 'jobs@dangotecement.com',
+                'password' => 'password',
             ],
             [
-                'name'=>'Panasonic',
-                'email'=>'panasonic@gmail.com',
-                'password'=>Hash::make('123123'),
-
+                'name' => 'Nigeria Bottling Company',
+                'email' => 'recruitment@nbc.com.ng',
+                'password' => 'password',
             ],
             [
-                'name'=>'Hitachi',
-                'email'=>'hitachi@gmail.com',
-                'password'=>Hash::make('123123'),
-
+                'name' => 'First Bank of Nigeria',
+                'email' => 'careers@firstbanknigeria.com',
+                'password' => 'password',
             ],
             [
-                'name'=>'Singer',
-                'email'=>'singer@gmail.com',
-                'password'=>Hash::make('123123'),
-
+                'name' => 'Kano State Government',
+                'email' => 'hr@kanostate.gov.ng',
+                'password' => 'password',
             ],
             [
-                'name'=>'Corsair',
-                'email'=>'corsair@gmail.com',
-                'password'=>Hash::make('123123'),
-
+                'name' => 'Emirates Steel Industries',
+                'email' => 'jobs@emiratessteel.com.ng',
+                'password' => 'password',
             ],
             [
-                'name'=>'Beximco',
-                'email'=>'beximco@gmail.com',
-                'password'=>Hash::make('123123'),
-
+                'name' => 'Kano Textile Mills',
+                'email' => 'hr@kanotextiles.com',
+                'password' => 'password',
             ],
             [
-                'name'=>'Bashundhara',
-                'email'=>'bashundhara@gmail.com',
-                'password'=>Hash::make('123123'),
-
+                'name' => 'Nasarawa Agro Industry',
+                'email' => 'careers@nasarawaagro.com',
+                'password' => 'password',
             ],
             [
-                'name'=>'Pran',
-                'email'=>'pran@gmail.com',
-                'password'=>Hash::make('123123'),
-
+                'name' => 'Katsina Leather and Allied Products',
+                'email' => 'jobs@katsinaleather.com',
+                'password' => 'password',
             ],
-
-
-
+            [
+                'name' => 'Nigeria Liquefied Natural Gas (NLNG)',
+                'email' => 'careers@nlng.com.ng',
+                'password' => 'password',
+            ],
+            [
+                'name' => 'Access Bank Plc',
+                'email' => 'careers@accessbankplc.com',
+                'password' => 'password',
+            ],
+            [
+                'name' => 'MTN Nigeria',
+                'email' => 'careers@mtn.com.ng',
+                'password' => 'password',
+            ],
+            [
+                'name' => 'Nestle Nigeria',
+                'email' => 'careers@nestle.com.ng',
+                'password' => 'password',
+            ],
+            [
+                'name' => 'Unilever Nigeria',
+                'email' => 'careers@unilever.com.ng',
+                'password' => 'password',
+            ],
         ];
 
-
-
-
-
-
-        foreach ($data as $singleData)
-        {
+        foreach ($data as $singleData) {
             Employer::create($singleData);
         }
     }
-
-
 }
