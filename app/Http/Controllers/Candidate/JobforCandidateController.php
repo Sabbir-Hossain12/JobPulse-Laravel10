@@ -15,12 +15,15 @@ class JobforCandidateController extends Controller
     function profileStore(Request $request)
     {
 
-         CandidateProfile::updateOrCreate([
-             'user_id' => \Illuminate\Support\Facades\Auth::id(), // Link to current user
-         ], [
+         CandidateProfile::createOrUpdate([
+
+
              'contact_number'=> $request->input('contact'),
              'address'=> $request->input('contact'),
+
              'edu_info_id'=> $request->input('edu_info'),
+
+
          ]);
     }
 
@@ -73,12 +76,12 @@ class JobforCandidateController extends Controller
 
 
             CandidateProfile::updateOrCreate([
-                'user_id' => \Illuminate\Support\Facades\Auth::id(), // Link to current user
-            ], [
-                'contact_number'=> $request->input('contact'),
+
+               'contact_number'=> $request->input('contact'),
                 'address'=> $request->input('address'),
                 'portfolio_url' =>$request->input('link'),
                 'linkedin_url'=>$request->input('port'),
+
             ]);
 
             return responseHelper::out('success','',201);

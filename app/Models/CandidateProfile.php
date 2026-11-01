@@ -7,13 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class CandidateProfile extends Model
 {
     use HasFactory;
 
-    protected $fillable=['img','contact_number','address','portfolio_url','linkedin_url','edu_info_id','user_id'];
+    protected $fillable=['img','contact_number','address','portfolio_url','linkedin_url','edu_info_id'];
 
     function educations():HasMany
     {
@@ -35,13 +34,9 @@ class CandidateProfile extends Model
         return $this->belongsToMany(Skill::class,'candidate_profile_skills');
     }
 
+
     function applications():HasMany
     {
         return $this->hasMany(Application::class);
-    }
-
-    function user():BelongsTo
-    {
-        return $this->belongsTo(\App\Models\User::class, 'user_id', 'id');
     }
 }

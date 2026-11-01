@@ -117,16 +117,13 @@ Route::middleware('employer')->prefix('employer')->group(function () {
     Route::get('/logout', [EmployerController::class, 'destroy'])->name('employer.logout');
 
     Route::view('/jobs', 'employer.pages.jobs-page')->name('employer.jobs');
-    Route::get('/job-list', [JobForEmployerController::class, 'jobList']); // Add this route for employer's job list
-    Route::get('/applications', function () {
-        return view('employer.pages.all-applications');
-    })->name('employer.applications'); // Show the applications page
-    Route::get('/applications-data', [JobForEmployerController::class, 'employerApplications'])->name('employer.applications.data'); // API endpoint for data
     Route::view('/employee', 'employer.pages.employee-page')->name('employer.employee');
     Route::view('/plugin', 'employer.pages.plugins-page')->name('employer.plugin');
 
 
-});
+}
+
+);
 //job page
 Route::get('/job-list', [JobController::class, 'jobList']);
 Route::get('/job-list-all', [JobController::class, 'jobListAll']);
@@ -150,15 +147,6 @@ Route::view('/job-by-category','pages.job-list-category-page');
 Route::get('/applications-candidate',[JobController::class,'jobListByApplication']);
 
 Route::post('/candidate-profile',[JobforCandidateController::class,'profileCreate']);
-
-// Route to view candidate profile
-Route::get('/candidate/{id}/profile', [App\Http\Controllers\CandidateProfileController::class, 'show'])->name('candidate.profile.view');
-
-//Employer specific routes for applications
-Route::get('/employer/job-applications/{id}', [JobForEmployerController::class, 'jobApplications']);
-Route::get('/employer/job/{id}/applications', function ($id) {
-    return view('employer.pages.job-applications', ['jobId' => $id]);
-})->name('employer.job.applications');
 
 
 //Employer

@@ -114,6 +114,8 @@ class JobController extends Controller
         {
             // Convert created_at timestamp to a formatted date using Carbon
             foreach ($data as $single) {
+
+
                 $formattedCreatedAt = Carbon::parse($single->created_at)->format('d M Y');
                 // Add the formatted created_at date to the data
                 $single->formatted_applied_at = $formattedCreatedAt;
